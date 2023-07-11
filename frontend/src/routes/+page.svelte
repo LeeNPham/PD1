@@ -23,9 +23,9 @@
 	<title>Svelte Kit Pokedex</title>
 </svelte:head>
 
-<h1 class="text-4xl text-white text-center my-8 uppercase">SvelteKit Pokedex</h1>
+<h1 class="text-4xl text-white font-bold text-center my-8 mt-10">Pokédex</h1>
 <input
-	class="w-full rounded-md text-lg p-4 border-2 border-gray-200"
+	class="w-full rounded-full text-lg p-2 border-2 border-gray-200"
 	bind:value={searchTerm}
 	type="text"
 	placeholder="Search Pokemon"
