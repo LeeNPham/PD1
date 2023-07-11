@@ -7,7 +7,6 @@
 	let filteredPokemon = [];
 
 	$: {
-		console.log(searchTerm);
 		if (searchTerm) {
 			//search the pokemon
 			filteredPokemon = $pokemon.filter((pokeman) =>

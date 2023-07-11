@@ -1,11 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
-
 	export let pokeman;
-
-	onMount(() => {
-		console.log(pokeman);
-	});
 </script>
 
 <a
