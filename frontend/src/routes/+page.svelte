@@ -1,4 +1,5 @@
 <script>
+	// @ts-nocheck
 	import PokemanCard from '$lib/components/PokemanCard.svelte';
 	import { pokemon } from '$src/stores/pokestore';
 
@@ -7,6 +8,14 @@
 
 	$: {
 		console.log(searchTerm);
+		if (searchTerm) {
+			//search the pokemon
+			filteredPokemon = $pokemon.filter((pokeman) =>
+				pokeman.name.toLowerCase().includes(searchTerm.toLowerCase())
+			);
+		} else {
+			filteredPokemon = [...$pokemon];
+		}
 	}
 </script>
 
@@ -22,7 +31,7 @@
 	placeholder="Search Pokemon"
 />
 <div class="py-4 grid gap-4 md:grid-cols-2 grid-cols-1">
-	{#each $pokemon as pokeman}
+	{#each filteredPokemon as pokeman}
 		<PokemanCard {pokeman} />
 	{/each}
 </div>
