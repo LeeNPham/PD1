@@ -1,5 +1,6 @@
 <script>
 	export let data;
+	console.log(data.pokeman.sprites.versions['generation-v']['black-white'].animated.front_default);
 </script>
 
 <div class="flex flex-col items-center gap-5">

@@ -10,9 +10,9 @@ const fetchPokemon = async (num) => {
 		return {
 			name: data.name,
 			id: index + 1,
-			image: `https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+			image: `https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
 				index + 1
-			}.png`
+			}.gif`
 		};
 	});
 	pokemon.set(loadedPokemon);

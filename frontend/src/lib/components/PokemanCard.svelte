@@ -7,9 +7,9 @@
 	href={`/pokemon/${pokeman.id}`}
 >
 	<div
-		class="bg-blue-300 rounded-full aspect-square w-40 border border-gray-500 shadow-lg shadow-black/50"
+		class="bg-blue-300 rounded-full aspect-square w-20 border border-gray-500 shadow-lg shadow-black/50"
 	/>
-	<img class="absolute boop h-40 w-40" src={pokeman.image} alt={pokeman.name} />
+	<img class="absolute boop top-10 h-10 w-10" src={pokeman.image} alt={pokeman.name} />
 	<h2 class="uppercase text-2xl flex flex-row w-full justify-between">
 		<div class="text-[50px] text-gray-900"># {pokeman.id}</div>
 		<div>{pokeman.name}</div>
