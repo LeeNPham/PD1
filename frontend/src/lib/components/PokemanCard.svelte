@@ -3,15 +3,12 @@
 </script>
 
 <a
-	class="relative p-6 bg-gray-100 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
+	class="relative p-6 w-[250px] h-[150px] bg-gray-100 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
 	href={`/pokemon/${pokeman.id}`}
 >
-	<div
-		class="bg-blue-300 rounded-full aspect-square w-20 border border-gray-500 shadow-lg shadow-black/50"
-	/>
-	<img class="absolute boop top-10 h-10 w-10" src={pokeman.image} alt={pokeman.name} />
+	<img class="absolute boop -top-8 h-14 w-14" src={pokeman.image} alt={pokeman.name} />
 	<h2 class="uppercase text-2xl flex flex-row w-full justify-between">
-		<div class="text-[50px] text-gray-900"># {pokeman.id}</div>
+		<div class="text-sm font-extrabold text-gray-500">Nº{pokeman.id}</div>
 		<div>{pokeman.name}</div>
 	</h2>
 </a>

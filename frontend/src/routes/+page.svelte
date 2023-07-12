@@ -29,7 +29,7 @@
 	type="text"
 	placeholder="Search Pokemon"
 />
-<div class="py-4 grid gap-4 md:grid-cols-2 grid-cols-1">
+<div class="flex flex-wrap gap-8 w-full justify-center py-8">
 	{#each filteredPokemon as pokeman}
 		<PokemanCard {pokeman} />
 	{/each}
