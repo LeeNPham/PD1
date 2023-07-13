@@ -3,7 +3,7 @@
 </script>
 
 <a
-	class="relative pt-10 p-6 w-[200px] h-[125px] bg-white text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
+	class="relative pt-10 p-6 w-[210px] h-[135px] bg-white text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
 	href={`/pokemon/${pokeman.id}`}
 >
 	<img class="absolute boop -top-7 h-10 w-10" src={pokeman.image} alt={pokeman.name} />

@@ -4,7 +4,7 @@
 </script>
 
 <Nav />
-<div class="p-8 max-w-6xl mx-auto bg-gray-200 flex flex-row items-start gap-5">
+<div class="p-8 max-w-6xl mx-auto bg-gray-200 flex flex-row items-start gap-10">
 	<div class="w-2/3">
 		<slot />
 	</div>
