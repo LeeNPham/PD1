@@ -25,7 +25,7 @@
 
 <div class="relative">
 	<input
-		class="w-full rounded-xl text-lg p-5"
+		class="w-full rounded-xl text-lg p-5 border-0 focus:ring-0 focus:border-0"
 		bind:value={searchTerm}
 		type="text"
 		placeholder="Search your Pokémon"
