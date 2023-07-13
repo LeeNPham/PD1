@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store';
 
+export const pageLocation = writable('home');
 export const pokemon = writable([]);
 
 const fetchPokemon = async (num) => {
