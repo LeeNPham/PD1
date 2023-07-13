@@ -1,6 +1,11 @@
 <script>
 	import { pageLocation } from '$src/stores/pokestore';
 	import PokeBall from '$lib/icons/PokeBall.svelte';
+	import PokemonLogo from '$lib/icons/PokemonLogo.svelte';
+	import DpadIcon from '$lib/icons/DpadIcon.svelte';
+	import TrophyIcon from '$lib/icons/TrophyIcon.svelte';
+	import NewsIcon from '$lib/icons/NewsIcon.svelte';
+	import TvIcon from '$lib/icons/TvIcon.svelte';
 
 	// create some sort of onclick, have it grab the elements id value and re-assign the value of pageLocation to it
 </script>
@@ -12,13 +17,9 @@
 		<a
 			id="home"
 			class="whitespace-nowrap mx-2 gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/"><PokeBall Class="w-8 h-8 fill-inherit" />Home</a
+			href="/"><PokemonLogo Class="w-16 h-16 fill-inherit" />Home</a
 		>
-		<a
-			id="about"
-			class="whitespace-nowrap mx-2 gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/about"><PokeBall Class="w-8 h-8 fill-inherit" />About</a
-		>
+
 		<a
 			id="pokedex"
 			class="whitespace-nowrap mx-2 gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
@@ -27,7 +28,7 @@
 		<a
 			id="videogames"
 			class="whitespace-nowrap mx-2 gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/"><PokeBall Class="w-8 h-8 fill-inherit" />Videogames</a
+			href="/"><DpadIcon Class="w-6 h-6 fill-inherit" /> Videogames</a
 		>
 		<a
 			id="tcg"
@@ -37,17 +38,17 @@
 		<a
 			id="tv"
 			class="whitespace-nowrap mx-2 gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/"><PokeBall Class="w-8 h-8 fill-inherit" />TV Pokémon</a
+			href="/"><TvIcon Class="w-8 h-8 fill-inherit" />TV Pokémon</a
 		>
 		<a
 			id="play"
 			class="whitespace-nowrap mx-2 gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/"><PokeBall Class="w-8 h-8 fill-inherit" />Play!Pokémon</a
+			href="/"><TrophyIcon Class="w-6 h-6 fill-inherit" />Play!Pokémon</a
 		>
 		<a
 			id="news"
 			class="whitespace-nowrap mx-2 gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/"><PokeBall Class="w-8 h-8 fill-inherit" />News</a
+			href="/about"><NewsIcon Class="w-8 h-8 fill-inherit" />News</a
 		>
 	</div>
 </nav>
