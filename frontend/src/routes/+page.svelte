@@ -37,6 +37,7 @@
 	>
 		<PokeBall Class="fill-white h-full w-full rotate-180" />
 	</button>
+	<!-- filter order by types, power level, weight, height -->
 	<div class="flex flex-row justify-between items-center">
 		<div class="font-semibold text-gray-900">Ascending ▽</div>
 		<div class="flex flex-row gap-2 items-center">
@@ -46,6 +47,7 @@
 			<input placeholder="max" class="w-20 rounded-md bg-primary-background" type="text" />
 		</div>
 	</div>
+	<!-- filter categories -->
 	<div class="flex flex-row justify-between items-center text-primary-gray font-semibold gap-3">
 		<div>
 			<Button

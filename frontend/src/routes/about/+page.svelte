@@ -1,3 +1,7 @@
+<script>
+	import uiSpec from '$lib/images/uispec.gif';
+</script>
+
 <svelte:head>
 	<title>About the Author</title>
 </svelte:head>
@@ -8,3 +12,4 @@
 	I liked so that I could simulate an actual work environment where I developed the front end and
 	its endpoints based on a UI spec.
 </p>
+<img class="border" src={uiSpec} alt="" />
