@@ -15,7 +15,7 @@
 			{data.pokeman.height} hectograms
 		</p>
 		<img
-			class="h-20 w-20"
+			class="h-20 w-auto"
 			src={data.pokeman.sprites.versions['generation-v']['black-white'].animated.front_default}
 			alt={data.pokeman.name}
 		/>
@@ -34,5 +34,13 @@
 				NEXT
 			</a>
 		</div>
+	</div>
+</div>
+
+<!-- Testing for details card -->
+<div class="h-full w-[370px] border">
+	<div class="h-[100px] flex items-end justify-center">image</div>
+	<div class="w-full h-[670px] rounded-xl bg-white flex items-center justify-center">
+		Pokemon Card Details View
 	</div>
 </div>
