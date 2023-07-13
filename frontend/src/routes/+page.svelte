@@ -50,7 +50,7 @@
 		<div class="flex justify-between items-center">
 			<div>
 				<Button
-					class="bg-white w-32 justify-between focus:border-0 focus:ring-0 text-primary-gray font-semibold text-md px-2 py-2 rounded-md shadow-lg shadow-primary-gray/20"
+					class="w-32 justify-between focus:border-0 focus:ring-0 text-gray-900 font-semibold text-md px-2 py-2 "
 					><Chevron>Ascending</Chevron></Button
 				>
 				<Dropdown>
