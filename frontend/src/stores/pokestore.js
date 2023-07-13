@@ -19,4 +19,4 @@ const fetchPokemon = async (num) => {
 	pokemon.set(loadedPokemon);
 };
 
-fetchPokemon(50);
+fetchPokemon(650);
