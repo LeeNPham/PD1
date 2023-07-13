@@ -46,7 +46,7 @@
 			<input placeholder="max" class="w-20 rounded-md bg-primary-background" type="text" />
 		</div>
 	</div>
-	<div class="flex flex-row justify-between items-center text-primary-gray font-semibold">
+	<div class="flex flex-row justify-between items-center text-primary-gray font-semibold gap-3">
 		<Button
 			class="bg-white w-32 justify-between focus:border-0 focus:ring-0 text-primary-gray font-semibold text-md px-2 py-2 rounded-md shadow-lg shadow-primary-gray/20"
 			><Chevron>Type</Chevron></Button
