@@ -12,18 +12,38 @@ const config = {
 	theme: {
 		extend: {
 			colors: {
-				// flowbite-svelte
 				primary: {
-					50: '#FFF5F2',
-					100: '#FFF1EE',
-					200: '#FFE4DE',
-					300: '#FFD5CC',
-					400: '#FFBCAD',
-					500: '#FE795D',
-					600: '#EF562F',
-					700: '#EB4F27',
-					800: '#CC4522',
-					900: '#A5371B'
+					background: '#f6f8fc',
+					activebutton: '#ff5350',
+					navbutton: '#777777',
+					gray: '#758a97'
+				},
+				buttons: {
+					grass: '#a8ef95',
+					ground: '#ffcd83',
+					fighting: '#df7763',
+					fire: '#ff994d',
+					water: '#98baff',
+					steel: '#98baff',
+					electricity: '#fce67f'
+				},
+				stats: {
+					grass: '#a8ef95',
+					ground: '#ffcd83',
+					fighting: '#df7763',
+					fire: '#ff994d',
+					water: '#98baff',
+					steel: '#98baff',
+					electricity: '#fce67f'
+				},
+				types: {
+					grass: '#a8ef95',
+					ground: '#ffcd83',
+					fighting: '#df7763',
+					fire: '#ff994d',
+					water: '#98baff',
+					steel: '#98baff',
+					electricity: '#fce67f'
 				}
 			}
 		}
