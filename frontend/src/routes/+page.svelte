@@ -5,7 +5,14 @@
 	import PokeBall from '$lib/icons/PokeBall.svelte';
 	import RefreshIcon from '$lib/icons/RefreshIcon.svelte';
 	import { pokemon } from '$src/stores/pokestore';
-	import { Button, Dropdown, DropdownItem, Chevron, Checkbox } from 'flowbite-svelte';
+	import {
+		Button,
+		Dropdown,
+		DropdownItem,
+		Chevron,
+		Checkbox,
+		DropdownDivider
+	} from 'flowbite-svelte';
 	let searchTerm = '';
 	let filteredPokemon = [];
 
@@ -41,7 +48,17 @@
 		</button>
 		<!-- filter order by types, power level, weight, height -->
 		<div class="flex justify-between items-center">
-			<div class="font-semibold text-gray-900">Ascending ▽</div>
+			<div>
+				<Button
+					class="bg-white w-32 justify-between focus:border-0 focus:ring-0 text-primary-gray font-semibold text-md px-2 py-2 rounded-md shadow-lg shadow-primary-gray/20"
+					><Chevron>Ascending</Chevron></Button
+				>
+				<Dropdown>
+					<DropdownItem>Descending</DropdownItem>
+					<DropdownDivider />
+					<DropdownItem>Default</DropdownItem>
+				</Dropdown>
+			</div>
 			<div class="flex flex-row gap-2 items-center">
 				<div class="font-semibold text-gray-900">from</div>
 				<input placeholder="min" class="w-20 rounded-md bg-primary-background" type="text" />
