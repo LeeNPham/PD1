@@ -1,6 +1,7 @@
 <script>
 	// @ts-nocheck
 	import PokemanCard from '$lib/components/PokemanCard.svelte';
+	import PokeBall from '$lib/icons/PokeBall.svelte';
 	import { pokemon } from '$src/stores/pokestore';
 
 	let searchTerm = '';
@@ -19,16 +20,23 @@
 </script>
 
 <svelte:head>
-	<title>Svelte Kit Pokedex</title>
+	<title>Svelte Kit Pokédex</title>
 </svelte:head>
 
-<h1 class="text-4xl text-white font-bold text-center my-8 mt-10">Pokédex</h1>
-<input
-	class="w-full rounded-full text-lg p-2 border-2 border-gray-200"
-	bind:value={searchTerm}
-	type="text"
-	placeholder="Search Pokemon"
-/>
+<div class="relative">
+	<input
+		class="w-full rounded-xl text-lg p-5"
+		bind:value={searchTerm}
+		type="text"
+		placeholder="Search your Pokémon"
+	/>
+	<button
+		class="absolute top-3 right-3 shadow-lg hover:shadow-red-700/50 bg-red-700 rounded-xl p-2 w-12 h-12"
+	>
+		<PokeBall Class="fill-white h-full w-full rotate-180" />
+	</button>
+</div>
+
 <div class="flex flex-wrap gap-8 w-full justify-center py-8">
 	{#each filteredPokemon as pokeman}
 		<PokemanCard {pokeman} />

@@ -3,14 +3,14 @@
 </script>
 
 <a
-	class="relative p-6 w-[250px] h-[150px] bg-gray-100 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
+	class="relative p-6 w-[200px] h-[125px] bg-white text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
 	href={`/pokemon/${pokeman.id}`}
 >
-	<img class="absolute boop -top-8 h-14 w-14" src={pokeman.image} alt={pokeman.name} />
-	<h2 class="uppercase text-2xl flex flex-row w-full justify-between">
-		<div class="text-sm font-extrabold text-gray-500">Nº{pokeman.id}</div>
+	<img class="absolute boop -top-7 h-10 w-10" src={pokeman.image} alt={pokeman.name} />
+	<div class="uppercase text-sm font-bold gap-2 flex flex-col w-full justify-between">
+		<div class="text-xs font-extrabold text-gray-500">Nº{pokeman.id}</div>
 		<div>{pokeman.name}</div>
-	</h2>
+	</div>
 </a>
 
 <style>
