@@ -73,8 +73,20 @@
 			<div>emporion </div>
 		</div>
 		<div class='flex w-full justify-between'>
-			<div>previous pokeman</div>
-			<div>next pokeman</div>
+
+				<a
+					class="w-20 py-0.5 bg-gray-700 text-white text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
+					href={`/pokemon/${pokeman.id - 1}`}
+				>
+					PREVIOUS
+				</a>
+				<a
+					class="w-20 py-0.5 bg-gray-700 text-white text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
+					href={`/pokemon/${pokeman.id + 1}`}
+				>
+					NEXT
+				</a>
+
 		</div>
 
 
