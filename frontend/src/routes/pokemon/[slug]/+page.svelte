@@ -1,4 +1,6 @@
 <script>
+	import PokemanDetailedCard from '$lib/components/PokemanDetailedCard.svelte';
+
 	export let data;
 	console.log(data);
 </script>
@@ -37,10 +39,4 @@
 	</div>
 </div>
 
-<!-- Testing for details card -->
-<div class="h-full w-[370px] border">
-	<div class="h-[100px] flex items-end justify-center">image</div>
-	<div class="w-full h-[670px] rounded-xl bg-white flex items-center justify-center">
-		Pokemon Card Details View
-	</div>
-</div>
+<PokemanDetailedCard />
