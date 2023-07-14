@@ -14,6 +14,8 @@ const fetchPokemon = async (num) => {
 			image: `https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
 				index + 1
 			}.gif`
+
+			// 	   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/132.gif'
 		};
 	});
 	pokemon.set(loadedPokemon);
