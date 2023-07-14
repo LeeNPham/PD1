@@ -6,7 +6,11 @@
 	class="relative pt-10 p-6 w-[225px] h-[150px] bg-white text-gray-800 text-center rounded-2xl shadow-md hover:shadow-lg shadow-primary-gray/20 flex flex-col items-center"
 	href={`/pokemon/${pokeman.id}`}
 >
-	<img class="absolute boop -top-7 h-10 w-auto" src={pokeman.image} alt={pokeman.name} />
+	<img
+		class="absolute boop -top-7 h-10 w-auto"
+		src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokeman.id}.gif`}
+		alt={pokeman.name}
+	/>
 	<div class="uppercase text-sm font-bold gap-2 flex flex-col w-full justify-between">
 		<div class="text-xs font-extrabold text-gray-500">Nº{pokeman.id}</div>
 		<div>{pokeman.name}</div>
