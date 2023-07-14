@@ -395,5 +395,5 @@
 </div>
 
 <div class="w-1/3">
-	<PokemanDetailedCard />
+	<!-- <PokemanDetailedCard /> -->
 </div>
