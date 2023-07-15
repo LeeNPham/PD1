@@ -18,16 +18,25 @@ const config = {
 					navbutton: '#777777',
 					gray: '#758a97'
 				},
-				buttons: {
-					grass: '#A8EF95',
-					ground: '#F0C079',
-					fighting: '#D8573E',
-					fire: '#F59C59',
-					water: '#8FAEEF',
-					steel: '#B2BDD5',
-					electricity: '#F0DE86',
-					poison: '#CB95EC',
-					bug: '#40C038'
+				type: {
+					bug: '#A8EF95',
+					dark: '#F0C079',
+					dragon: '#D8573E',
+					electric: '#F59C59',
+					fairy: '#8FAEEF',
+					fighting: '#B2BDD5',
+					fire: '#F0DE86',
+					flying: '#CB95EC',
+					ghost: '#40C038',
+					grass: '#D8573E',
+					ground: '#F59C59',
+					ice: '#8FAEEF',
+					normal: '#B2BDD5',
+					poison: '#F0DE86',
+					psychic: '#CB95EC',
+					rock: '#D8573E',
+					steel: '#F59C59',
+					water: '#8FAEEF'
 				}
 			}
 		}

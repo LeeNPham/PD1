@@ -45,13 +45,13 @@
 	});
 </script>
 
-<div class="bg-buttons-grass" />
-<div class="bg-buttons-steel" />
-<div class="bg-buttons-ground" />
-<div class="bg-buttons-fire" />
-<div class="bg-buttons-water" />
-<div class="bg-buttons-electricity" />
-<div class="bg-buttons-bug" />
+<div class="bg-type-grass" />
+<div class="bg-type-steel" />
+<div class="bg-type-ground" />
+<div class="bg-type-fire" />
+<div class="bg-type-water" />
+<div class="bg-type-electric" />
+<div class="bg-type-bug" />
 
 <div class="relative">
 	<div class="absolute h-[250px] w-full flex items-center justify-center">
@@ -70,7 +70,7 @@
 		<div class="text-primary-gray text-center w-full text-md">{pokemanGenus.genera[7].genus}</div>
 		<div class="flex w-full justify-center gap-2">
 			{#each pokeman.types as types}
-				{@const buttonColor = `bg-buttons-${types.type.name}`}
+				{@const buttonColor = `bg-type-${types.type.name}`}
 				<div class="font-bold rounded-md text-black/70 px-3 py-1 {buttonColor}">
 					{types.type.name}
 				</div>

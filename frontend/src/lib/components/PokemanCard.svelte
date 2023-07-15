@@ -15,8 +15,8 @@
 		<div class="text-xs font-extrabold text-gray-500">Nº{pokeman.id}</div>
 		<div>{pokeman.name}</div>
 		<div class="flex flex-wrap gap-2 text-xs font-bold uppercase justify-center items-center">
-			<button class="p-1 px-2 rounded-md bg-buttons-grass uppercase">grass</button>
-			<button class="p-1 px-2 rounded-md bg-buttons-fire uppercase">fire</button>
+			<button class="p-1 px-2 rounded-md bg-type-grass uppercase">grass</button>
+			<button class="p-1 px-2 rounded-md bg-type-fire uppercase">fire</button>
 		</div>
 	</div>
 </a>
