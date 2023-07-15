@@ -152,24 +152,40 @@
 		</div>
 		<div class="text-center text-sm w-full uppercase font-bold text-gray-800">evolution</div>
 		<div class="flex w-full justify-between items-center min-h-[100px]">
-			<div>piplup</div>
-			<div class="bg-gray-200 rounded-full p-1 px-2 text-xs font-bold text-gray-500">lvl 16</div>
-			<div>prinplup</div>
-			<div class="bg-gray-200 rounded-full p-1 px-2 text-xs font-bold text-gray-500">lvl 38</div>
-			<div>emporion</div>
+			{#if pokemanGenus.evolves_from_species}
+				<div>{pokemanGenus.evolves_from_species.name}</div>
+				<div class="bg-gray-200 rounded-full p-1 px-2 text-xs font-bold text-gray-500">
+					evolves from
+				</div>
+			{/if}
+			<div>{pokeman.name}</div>
 		</div>
 		<div class="flex flex-row w-full justify-between bg-gray-300 rounded-md py-5">
 			<a
-				class="w-full h-full text-white text-center flex flex-col items-center border-r"
+				class="w-full h-full text-white text-center flex items-center border-r px-4 justify-start gap-4"
 				href={`/pokemon/${pokeman.id - 1}`}
 			>
-				PREVIOUS
+				<div>◀</div>
+				<img
+					class="h-14 w-auto object-cover"
+					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
+						pokeman.id - 1
+					}.gif`}
+					alt=""
+				/>
 			</a>
 			<a
-				class="w-full h-full text-white text-center flex flex-col items-center border-l"
+				class="w-full h-full text-white text-center flex items-center border-l px-4 justify-end gap-4"
 				href={`/pokemon/${pokeman.id + 1}`}
 			>
-				NEXT
+				<img
+					class="h-14 w-auto object-cover"
+					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
+						pokeman.id + 1
+					}.gif`}
+					alt=""
+				/>
+				<div>▶</div>
 			</a>
 		</div>
 	</div>
