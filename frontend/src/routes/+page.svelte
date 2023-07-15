@@ -71,6 +71,68 @@
 			<div>
 				<Button
 					class="bg-white w-32 justify-between focus:border-0 focus:ring-0 text-primary-gray font-semibold text-md px-2 py-2 rounded-md shadow-lg shadow-primary-gray/20"
+					><Chevron>Region</Chevron></Button
+				>
+				<Dropdown class="w-auto p-2 space-y-2 text-sm z-10">
+					<li>
+						<Checkbox>Normal</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Fire</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Water</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Grass</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Electric</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Ice</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Fighting</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Poison</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Ground</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Flying</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Psychic</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Bug</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Rock</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Ghost</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Dark</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Dragon</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Steel</Checkbox>
+					</li>
+					<li>
+						<Checkbox>Fairy</Checkbox>
+					</li>
+				</Dropdown>
+			</div>
+			<div>
+				<Button
+					class="bg-white w-32 justify-between focus:border-0 focus:ring-0 text-primary-gray font-semibold text-md px-2 py-2 rounded-md shadow-lg shadow-primary-gray/20"
 					><Chevron>Type</Chevron></Button
 				>
 				<Dropdown class="w-auto p-2 space-y-2 text-sm z-10">
@@ -134,68 +196,6 @@
 				<Button
 					class="bg-white w-32 justify-between focus:border-0 focus:ring-0 text-primary-gray font-semibold text-md px-2 py-2 rounded-md shadow-lg shadow-primary-gray/20"
 					><Chevron>Weaknesses</Chevron></Button
-				>
-				<Dropdown class="w-auto p-2 space-y-2 text-sm z-10">
-					<li>
-						<Checkbox>Normal</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Fire</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Water</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Grass</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Electric</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Ice</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Fighting</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Poison</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Ground</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Flying</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Psychic</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Bug</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Rock</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Ghost</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Dark</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Dragon</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Steel</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Fairy</Checkbox>
-					</li>
-				</Dropdown>
-			</div>
-			<div>
-				<Button
-					class="bg-white w-32 justify-between focus:border-0 focus:ring-0 text-primary-gray font-semibold text-md px-2 py-2 rounded-md shadow-lg shadow-primary-gray/20"
-					><Chevron>Ability</Chevron></Button
 				>
 				<Dropdown class="w-auto p-2 space-y-2 text-sm z-10">
 					<li>

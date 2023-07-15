@@ -60,7 +60,7 @@
 		/>
 	</div>
 	<div id="placeholderSpace" class="h-[115px]" />
-	<div class="pt-[125px] p-8 w-full h-[670px] rounded-xl bg-white flex flex-col items-start gap-1">
+	<div class="pt-[125px] p-8 w-full h-[875px] rounded-xl bg-white flex flex-col items-start gap-1">
 		<div class="text-md w-full text-center font-extrabold text-gray-500">#{pokeman.id}</div>
 		<div class="text-3xl w-full text-center font-bold text-gray-900 capitalize">
 			{pokeman.name}
@@ -77,14 +77,14 @@
 		<div class="text-center text-sm py-2 w-full uppercase font-bold text-gray-800">
 			pokédex entry
 		</div>
-		<div class="w-full h-20 text-sm text-black font-medium">
+		<div class="w-full min-h-[55px] text-sm text-black font-medium">
 			{pokemanGenus.flavor_text_entries[1].flavor_text}
 		</div>
 		<div class="text-center py-2 text-sm w-full uppercase font-bold text-gray-800">abilities</div>
-		<div class="flex w-full gap-3">
+		<div class="flex w-full justify-evenly gap-3">
 			{#each pokeman.abilities as ability}
 				<div
-					class="relative p-1 px-4 text-left w-full border rounded-full font-bold text-gray-800 capitalize {ability.is_hidden
+					class="relative p-1 px-4 text-left w-full whitespace-nowrap border rounded-full font-bold text-gray-800 capitalize {ability.is_hidden
 						? 'border-red-800'
 						: 'border-primary-gray'}"
 				>
@@ -151,22 +151,22 @@
 			{/each}
 		</div>
 		<div class="text-center text-sm w-full uppercase font-bold text-gray-800">evolution</div>
-		<div class="flex w-full justify-between">
+		<div class="flex w-full justify-between items-center min-h-[100px]">
 			<div>piplup</div>
-			<div>level 16</div>
+			<div class="bg-gray-200 rounded-full p-1 px-2 text-xs font-bold text-gray-500">lvl 16</div>
 			<div>prinplup</div>
-			<div>lvl 38</div>
+			<div class="bg-gray-200 rounded-full p-1 px-2 text-xs font-bold text-gray-500">lvl 38</div>
 			<div>emporion</div>
 		</div>
-		<div class="flex w-full justify-between">
+		<div class="flex flex-row w-full justify-between bg-gray-300 rounded-md py-5">
 			<a
-				class="w-20 py-0.5 bg-gray-700 text-white text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
+				class="w-full h-full text-white text-center flex flex-col items-center border-r"
 				href={`/pokemon/${pokeman.id - 1}`}
 			>
 				PREVIOUS
 			</a>
 			<a
-				class="w-20 py-0.5 bg-gray-700 text-white text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
+				class="w-full h-full text-white text-center flex flex-col items-center border-l"
 				href={`/pokemon/${pokeman.id + 1}`}
 			>
 				NEXT
