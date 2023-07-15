@@ -39,5 +39,5 @@
 	</div>
 </div>
 <div class="w-1/3">
-	<PokemanDetailedCard pokeman={data.pokeman} />
+	<PokemanDetailedCard pokeman={data.pokeman} pokemanGenus={data.pokemanGenus} />
 </div>

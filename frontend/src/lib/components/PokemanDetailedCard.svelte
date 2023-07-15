@@ -7,15 +7,21 @@
 
 	// 	return { pokeman };
 	// }
+
+	'https://pokeapi.co/api/v2/pokemon-species/395';
 </script>
 
 <script>
 	import { pokemon } from '$src/stores/pokestore';
-
 	import { onMount } from 'svelte';
 
+	export let pokemanGenus;
 	export let pokeman;
 	onMount(async () => {
+		pokeman.types.forEach((item) => {
+			item.button = `bg-buttons-${item.type.name}`;
+		});
+
 		// console.log(pokeman);
 		// this is to get the species endpoint, see who it evolves into/from, and its genus
 		// current data = https://pokeapi.co/api/v2/pokemon/395
@@ -33,17 +39,22 @@
 	</div>
 	<div id="placeholderSpace" class="h-[125px]" />
 	<div class="pt-[125px] p-8 w-full h-[670px] rounded-xl bg-white flex flex-col items-start">
-		<div>{pokeman.id}</div>
-		<div>{pokeman.name}</div>
-		<div>pokemon genus</div>
+		<div class="text-md w-full text-center font-extrabold text-gray-500">#{pokeman.id}</div>
+		<div class="text-2xl w-full text-center font-bold text-gray-900 capitalize">
+			{pokeman.name}
+		</div>
+		<div class="text-primary-gray text-center w-full text-xs">{pokemanGenus.genera[7].genus}</div>
 		<div class="flex w-full justify-evenly">
 			{#each pokeman.types as types}
-				<div>{types.type.name}</div>
+				{@const buttonColor = types.button}
+				<div class="font-bold text-black-800 px-2 py-1 {buttonColor}">
+					{types.type.name}
+				</div>
 			{/each}
 		</div>
-		<div class="text-center w-full uppercase font-bold text-gray-800">pokédex entry</div>
+		<div class="text-center text-sm w-full uppercase font-bold text-gray-800">pokédex entry</div>
 		<div class="border w-full h-20">pokemon description</div>
-		<div class="text-center w-full uppercase font-bold text-gray-800">abilities</div>
+		<div class="text-center text-sm w-full uppercase font-bold text-gray-800">abilities</div>
 		<div class="flex w-full gap-5">
 			{#each pokeman.abilities as ability}
 				<div class="p-2 px-4 w-full border rounded-full font-bold text-gray-800 capitalize">
@@ -65,7 +76,7 @@
 				<div>{pokeman.base_experience}</div>
 			</div>
 		</div>
-		<div class="text-center w-full uppercase font-bold text-gray-800">stats</div>
+		<div class="text-center text-sm w-full uppercase font-bold text-gray-800">stats</div>
 		<div class="flex w-full justify-evenly">
 			<div>HP</div>
 			<div>ATK</div>
@@ -75,7 +86,7 @@
 			<div>SPD</div>
 			<div>TOT</div>
 		</div>
-		<div class="text-center w-full uppercase font-bold text-gray-800">evolution</div>
+		<div class="text-center text-sm w-full uppercase font-bold text-gray-800">evolution</div>
 		<div class="flex w-full justify-between">
 			<div>piplup</div>
 			<div>level 16</div>

@@ -11,7 +11,7 @@
 </div>
 <div class="w-full min-h-screen bg-primary-background">
 	<Nav />
-	<div class="py-5 max-w-6xl mx-auto flex flex-row items-start gap-10">
+	<div class="max-w-6xl mx-auto flex flex-row items-start gap-10">
 		<slot />
 	</div>
 </div>

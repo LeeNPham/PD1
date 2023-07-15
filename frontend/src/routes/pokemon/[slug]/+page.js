@@ -5,5 +5,12 @@ export async function load({ fetch, params }) {
 	const res = await fetch(url);
 	const pokeman = await res.json();
 
-	return { pokeman };
+	const genusUrl = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
+	const gRes = await fetch(genusUrl);
+	const pokemanGenus = await gRes.json();
+
+	return {
+		pokeman,
+		pokemanGenus
+	};
 }
