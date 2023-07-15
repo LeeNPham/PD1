@@ -19,31 +19,14 @@ const config = {
 					gray: '#758a97'
 				},
 				buttons: {
-					grass: '#a8ef95',
-					ground: '#ffcd83',
-					fighting: '#df7763',
-					fire: '#ff994d',
-					water: '#98baff',
-					steel: '#98baff',
-					electricity: '#fce67f'
-				},
-				stats: {
-					grass: '#a8ef95',
-					ground: '#ffcd83',
-					fighting: '#df7763',
-					fire: '#ff994d',
-					water: '#98baff',
-					steel: '#98baff',
-					electricity: '#fce67f'
-				},
-				types: {
-					grass: '#a8ef95',
-					ground: '#ffcd83',
-					fighting: '#df7763',
-					fire: '#ff994d',
-					water: '#98baff',
-					steel: '#98baff',
-					electricity: '#fce67f'
+					grass: '#A8EF95',
+					ground: '#F0C079',
+					fighting: '#D8573E',
+					fire: '#F59C59',
+					water: '#8FAEEF',
+					steel: '#B2BDD5',
+					electricity: '#F0DE86',
+					poison: '#CB95EC'
 				}
 			}
 		}

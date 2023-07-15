@@ -1,31 +1,13 @@
-<script context="module">
-	// export async function load({ fetch, params }) {
-	// 	const id = params.slug;
-	// 	const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-	// 	const res = await fetch(url);
-	// 	const pokeman = await res.json();
-
-	// 	return { pokeman };
-	// }
-
-	'https://pokeapi.co/api/v2/pokemon-species/395';
-</script>
-
 <script>
+	import EyeCloseIcon from '$lib/icons/EyeCloseIcon.svelte';
+	import EyeIcon from '$lib/icons/EyeIcon.svelte';
 	import { pokemon } from '$src/stores/pokestore';
 	import { onMount } from 'svelte';
 
 	export let pokemanGenus;
 	export let pokeman;
 	onMount(async () => {
-		pokeman.types.forEach((item) => {
-			item.button = `bg-buttons-${item.type.name}`;
-		});
-
-		// console.log(pokeman);
-		// this is to get the species endpoint, see who it evolves into/from, and its genus
-		// current data = https://pokeapi.co/api/v2/pokemon/395
-		// https://pokeapi.co/api/v2/pokemon-species/395}/
+		console.log(pokeman);
 	});
 </script>
 
@@ -38,27 +20,40 @@
 		/>
 	</div>
 	<div id="placeholderSpace" class="h-[125px]" />
-	<div class="pt-[125px] p-8 w-full h-[670px] rounded-xl bg-white flex flex-col items-start">
+	<div class="pt-[125px] p-8 w-full h-[670px] rounded-xl bg-white flex flex-col items-start gap-1">
 		<div class="text-md w-full text-center font-extrabold text-gray-500">#{pokeman.id}</div>
-		<div class="text-2xl w-full text-center font-bold text-gray-900 capitalize">
+		<div class="text-3xl w-full text-center font-bold text-gray-900 capitalize">
 			{pokeman.name}
 		</div>
-		<div class="text-primary-gray text-center w-full text-xs">{pokemanGenus.genera[7].genus}</div>
-		<div class="flex w-full justify-evenly">
+		<div class="text-primary-gray text-center w-full text-md">{pokemanGenus.genera[7].genus}</div>
+		<div class="flex w-full justify-center gap-2">
 			{#each pokeman.types as types}
-				{@const buttonColor = types.button}
-				<div class="font-bold text-black-800 px-2 py-1 {buttonColor}">
+				{@const buttonColor = `bg-buttons-${types.type.name}`}
+				<div class="font-bold rounded-md text-black-800 px-3 py-1 {buttonColor}">
 					{types.type.name}
 				</div>
 			{/each}
 		</div>
-		<div class="text-center text-sm w-full uppercase font-bold text-gray-800">pokédex entry</div>
-		<div class="border w-full h-20">pokemon description</div>
-		<div class="text-center text-sm w-full uppercase font-bold text-gray-800">abilities</div>
+		<div class="text-center text-sm py-2 w-full uppercase font-bold text-gray-800">
+			pokédex entry
+		</div>
+		<div class="w-full h-20 text-sm text-black font-medium">
+			{pokemanGenus.flavor_text_entries[1].flavor_text}
+		</div>
+		<div class="text-center py-2 text-sm w-full uppercase font-bold text-gray-800">abilities</div>
 		<div class="flex w-full gap-5">
 			{#each pokeman.abilities as ability}
-				<div class="p-2 px-4 w-full border rounded-full font-bold text-gray-800 capitalize">
+				<div
+					class="relative p-1 px-4 text-left w-full border rounded-full font-bold text-gray-800 capitalize {ability.is_hidden
+						? 'border-red-800'
+						: 'border-primary-gray'}"
+				>
 					{ability.ability.name}
+					{#if ability.is_hidden}
+						<div class="absolute right-3 top-[6px]">
+							<EyeCloseIcon Class="h-5 w-5 stroke-primary-gray" />
+						</div>
+					{/if}
 				</div>
 			{/each}
 		</div>
