@@ -45,10 +45,10 @@
 	});
 </script>
 
-<div class="bg-type-grass" />
+<div class="bg-type-normal" />
 <div class="bg-type-steel" />
 <div class="bg-type-ground" />
-<div class="bg-type-fire" />
+<div class="bg-type-flying" />
 <div class="bg-type-water" />
 <div class="bg-type-electric" />
 <div class="bg-type-bug" />

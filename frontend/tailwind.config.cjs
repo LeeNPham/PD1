@@ -19,24 +19,24 @@ const config = {
 					gray: '#758a97'
 				},
 				type: {
-					bug: '#A8EF95',
-					dark: '#F0C079',
-					dragon: '#D8573E',
-					electric: '#F59C59',
-					fairy: '#8FAEEF',
-					fighting: '#B2BDD5',
-					fire: '#F0DE86',
-					flying: '#CB95EC',
-					ghost: '#40C038',
-					grass: '#D8573E',
-					ground: '#F59C59',
-					ice: '#8FAEEF',
-					normal: '#B2BDD5',
-					poison: '#F0DE86',
-					psychic: '#CB95EC',
-					rock: '#D8573E',
-					steel: '#F59C59',
-					water: '#8FAEEF'
+					bug: '#92BC2C',
+					dark: '#595761',
+					dragon: '#0C69C8',
+					electric: '#F2D94E',
+					fairy: '#EE90E6',
+					fighting: '#D3425F',
+					fire: '#FBA54C',
+					flying: '#A1BBEC',
+					ghost: '#5F6DBC',
+					grass: '#5FBD58',
+					ground: '#DA7C4D',
+					ice: ' #75D0C1',
+					normal: '#A0A29F',
+					poison: '#B763CF',
+					psychic: '#FA8581',
+					rock: '#C9BB8A',
+					steel: '#5695A3',
+					water: '#539DDF'
 				}
 			}
 		}
