@@ -1,18 +1,20 @@
-<script context='module'>
-// export async function load({ fetch, params }) {
-// 	const id = params.slug;
-// 	const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-// 	const res = await fetch(url);
-// 	const pokeman = await res.json();
+<script context="module">
+	// export async function load({ fetch, params }) {
+	// 	const id = params.slug;
+	// 	const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+	// 	const res = await fetch(url);
+	// 	const pokeman = await res.json();
 
-// 	return { pokeman };
-// }
+	// 	return { pokeman };
+	// }
 </script>
 
 <script>
+	import { pokemon } from '$src/stores/pokestore';
+
 	import { onMount } from 'svelte';
 
-	export let pokeman
+	export let pokeman;
 	onMount(async () => {
 		// console.log(pokeman);
 		// this is to get the species endpoint, see who it evolves into/from, and its genus
@@ -34,35 +36,37 @@
 		<div>{pokeman.id}</div>
 		<div>{pokeman.name}</div>
 		<div>pokemon genus</div>
-		<div class='flex w-full justify-evenly'>
+		<div class="flex w-full justify-evenly">
 			{#each pokeman.types as types}
 				<div>{types.type.name}</div>
 			{/each}
 		</div>
-		<div class='text-center w-full uppercase font-bold text-gray-800'>pokédex entry</div>
-		<div class='border w-full h-20'>pokemon description</div>
-		<div class='text-center w-full uppercase font-bold text-gray-800'>abilities</div>
-		<div class='flex w-full gap-5'>
+		<div class="text-center w-full uppercase font-bold text-gray-800">pokédex entry</div>
+		<div class="border w-full h-20">pokemon description</div>
+		<div class="text-center w-full uppercase font-bold text-gray-800">abilities</div>
+		<div class="flex w-full gap-5">
 			{#each pokeman.abilities as ability}
-			<div class='p-2 px-4 w-full border rounded-full font-bold text-gray-800 capitalize'>{ability.ability.name}</div>
+				<div class="p-2 px-4 w-full border rounded-full font-bold text-gray-800 capitalize">
+					{ability.ability.name}
+				</div>
 			{/each}
 		</div>
-		<div class='flex flex-row w-full justify-between'>
-			<div class='flex flex-col w-1/2 items-center justify-center'>
+		<div class="flex flex-row w-full justify-between">
+			<div class="flex flex-col w-1/2 items-center justify-center">
 				<div>height</div>
-				<div>height value</div>
+				<div>{pokeman.height}</div>
 				<div>weaknesses</div>
 				<div>weakness types</div>
 			</div>
-			<div class='flex flex-col w-1/2 items-center justify-center'>
+			<div class="flex flex-col w-1/2 items-center justify-center">
 				<div>weight</div>
-				<div>weight value</div>
+				<div>{pokeman.weight}</div>
 				<div>base exp</div>
-				<div>base exp value</div>
+				<div>{pokeman.base_experience}</div>
 			</div>
 		</div>
-		<div class='text-center w-full uppercase font-bold text-gray-800'>stats</div>
-		<div class='flex w-full justify-evenly'>
+		<div class="text-center w-full uppercase font-bold text-gray-800">stats</div>
+		<div class="flex w-full justify-evenly">
 			<div>HP</div>
 			<div>ATK</div>
 			<div>DEF</div>
@@ -71,50 +75,27 @@
 			<div>SPD</div>
 			<div>TOT</div>
 		</div>
-		<div class='text-center w-full uppercase font-bold text-gray-800'>evolution</div>
-		<div class='flex w-full justify-between'>
-			<div>piplup </div>
+		<div class="text-center w-full uppercase font-bold text-gray-800">evolution</div>
+		<div class="flex w-full justify-between">
+			<div>piplup</div>
 			<div>level 16</div>
-			<div>prinplup </div>
+			<div>prinplup</div>
 			<div>lvl 38</div>
-			<div>emporion </div>
+			<div>emporion</div>
 		</div>
-		<div class='flex w-full justify-between'>
-
-				<a
-					class="w-20 py-0.5 bg-gray-700 text-white text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
-					href={`/pokemon/${pokeman.id - 1}`}
-				>
-					PREVIOUS
-				</a>
-				<a
-					class="w-20 py-0.5 bg-gray-700 text-white text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
-					href={`/pokemon/${pokeman.id + 1}`}
-				>
-					NEXT
-				</a>
-
+		<div class="flex w-full justify-between">
+			<a
+				class="w-20 py-0.5 bg-gray-700 text-white text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
+				href={`/pokemon/${pokeman.id - 1}`}
+			>
+				PREVIOUS
+			</a>
+			<a
+				class="w-20 py-0.5 bg-gray-700 text-white text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
+				href={`/pokemon/${pokeman.id + 1}`}
+			>
+				NEXT
+			</a>
 		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	</div>
 </div>
