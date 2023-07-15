@@ -36,10 +36,12 @@
 
 		speed: ['SPD', 'bg-pink-400']
 	};
+	let showHidden = false;
+	$: hiddenText = showHidden == true ? 'text-gray-800' : 'text-white';
 
 	export let pokemanGenus;
 	export let pokeman;
-	let showHidden = false;
+
 	onMount(async () => {
 		console.log(pokeman);
 	});
@@ -86,9 +88,9 @@
 		<div class="flex w-full justify-evenly gap-3">
 			{#each pokeman.abilities as ability}
 				<div
-					class="relative p-1 px-4 text-left w-full whitespace-nowrap border rounded-full font-bold text-gray-800 capitalize {ability.is_hidden
-						? 'border-red-800'
-						: 'border-primary-gray'}"
+					class="relative p-1 px-4 text-left w-full whitespace-nowrap border rounded-full font-bold capitalize {ability.is_hidden
+						? `border-red-800 text-gray-800 ${hiddenText}`
+						: 'border-primary-gray text-gray-800'}"
 				>
 					{ability.ability.name}
 
