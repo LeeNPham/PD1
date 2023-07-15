@@ -25,15 +25,10 @@
 	};
 	const statMap = {
 		hp: ['HP', 'bg-red-700'],
-
 		attack: ['ATK', 'bg-orange-400'],
-
 		defense: ['DEF', 'bg-yellow-300'],
-
 		'special-attack': ['SpA', 'bg-cyan-400'],
-
 		'special-defense': ['SpD', 'bg-green-300'],
-
 		speed: ['SPD', 'bg-pink-400']
 	};
 	let showHidden = false;
