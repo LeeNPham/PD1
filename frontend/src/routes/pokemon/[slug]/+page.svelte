@@ -5,7 +5,7 @@
 	console.log(data);
 </script>
 
-<div class="flex flex-col items-center gap-5 w-2/3">
+<!-- <div class="flex flex-col items-center gap-5 w-2/3">
 	<h1 class="text-4xl text-center my-8 uppercase font-bold text-white">{data.pokeman.name}</h1>
 	<div class="flex flex-col gap-4 items-center p-5 bg-gray-400 rounded-xl">
 		<p class="bg-white px-10 rounded-lg py-1">
@@ -37,7 +37,9 @@
 			</a>
 		</div>
 	</div>
-</div>
-<div class="w-1/3">
-	<PokemanDetailedCard pokeman={data.pokeman} pokemanGenus={data.pokemanGenus} />
+</div> -->
+<div class="flex justify-center w-full">
+	<div class="w-[384px]">
+		<PokemanDetailedCard pokeman={data.pokeman} pokemanGenus={data.pokemanGenus} />
+	</div>
 </div>

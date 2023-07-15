@@ -26,7 +26,8 @@ const config = {
 					water: '#8FAEEF',
 					steel: '#B2BDD5',
 					electricity: '#F0DE86',
-					poison: '#CB95EC'
+					poison: '#CB95EC',
+					bug: '#40C038'
 				}
 			}
 		}
