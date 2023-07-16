@@ -61,21 +61,27 @@
 
 <div class="text-center text-sm w-full uppercase font-bold text-gray-800 pt-2">evolution</div>
 
-<div class="flex flex-row justify-between w-full items-center min-h-[70px]">
-	{#each evolutionList as evolution}
-		{#if evolution[2]}
-			<div
-				class="bg-gray-200 px-2 py-1.5 flex items-center rounded-full text-[12px] font-extrabold whitespace-nowrap text-gray-400"
-			>
-				{evolution[2]}
-			</div>
-		{/if}
-		<a href="/pokemon/{evolution[1]}" class="flex items-center flex-col justify-center">
-			<img
-				class="h-14"
-				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${evolution[1]}.png`}
-				alt=""
-			/>
-		</a>
-	{/each}
-</div>
+{#if evolutionList.length > 0}
+	<div class="flex flex-row justify-between w-full items-center min-h-[70px]">
+		{#each evolutionList as evolution}
+			{#if evolution[2]}
+				<div
+					class="bg-gray-200 px-2 py-1.5 flex items-center rounded-full text-[12px] font-extrabold whitespace-nowrap text-gray-400"
+				>
+					{evolution[2]}
+				</div>
+			{/if}
+			<a href="/pokemon/{evolution[1]}" class="flex items-center flex-col justify-center">
+				<img
+					class="h-14"
+					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${evolution[1]}.png`}
+					alt=""
+				/>
+			</a>
+		{/each}
+	</div>
+{:else}
+	<div class="flex flex-row justify-center text-center font-bold w-full items-center min-h-[70px]">
+		No Evolution Info
+	</div>
+{/if}

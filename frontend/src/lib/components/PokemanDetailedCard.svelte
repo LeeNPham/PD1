@@ -180,7 +180,7 @@
 					: ''} w-full h-full text-white text-center flex items-center border-r px-4 justify-start gap-4 border-gray-500"
 				href={`/pokemon/${pokeman.id - 1}`}
 			>
-				<div>◀</div>
+				<div class="text-gray-500 font-extrabold">{`<<`}</div>
 				{#if pokeman.id - 1 <= 649}
 					<img
 						class="h-8 w-auto object-cover"
@@ -198,15 +198,16 @@
 						alt=""
 					/>
 				{/if}
+				<div class="text-gray-500">#{pokeman.id - 1}</div>
 			</a>
 			<a
-				class="w-full h-full text-white text-center flex items-center border-l px-4 justify-end gap-4{pokeman.id +
+				class="w-full h-full text-white text-center flex items-center border-l px-4 justify-end gap-4 {pokeman.id +
 					1 ==
 				1009
 					? 'hidden'
 					: ''}"
 				href={`/pokemon/${pokeman.id + 1}`}
-			>
+				><div class="text-gray-500">#{pokeman.id + 1}</div>
 				{#if pokeman.id + 1 <= 649}
 					<img
 						class="h-8 w-auto object-cover"
@@ -224,7 +225,7 @@
 						alt=""
 					/>
 				{/if}
-				<div>▶</div>
+				<div class="text-gray-500 font-extrabold">>></div>
 			</a>
 		</div>
 	</div>
