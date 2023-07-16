@@ -72,7 +72,7 @@
 			/>
 			<button
 				type="submit"
-				class="absolute -p-3 right-3 shadow-md hover:shadow-primary-activebutton/50 bg-primary-activebutton rounded-xl p-2 w-12 h-12"
+				class="absolute -p-3 right-3 top-2 shadow-md hover:shadow-primary-activebutton/50 bg-primary-activebutton rounded-xl p-2 w-12 h-12"
 			>
 				<PokeBall Class="fill-white h-full w-full rotate-180" />
 			</button>
