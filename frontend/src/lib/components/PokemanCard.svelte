@@ -12,18 +12,20 @@
 </script>
 
 <a
-	class="relative pt-10 p-6 w-[225px] h-[150px] bg-white text-gray-800 text-center rounded-2xl shadow-md hover:shadow-lg shadow-primary-gray/20 flex flex-col items-center"
+	class="relative pt-10 p-6 w-[225px] bg-white text-gray-800 text-center rounded-2xl shadow-md hover:shadow-lg shadow-primary-gray/20 flex flex-col items-center"
 	href={`/pokemon/${pokeman.id}`}
 >
-	<img class="absolute boop -top-7 h-10 w-auto" src={pokeman.image} alt={pokeman.name} />
+	<img class="absolute boop -top-7 h-14 w-auto" src={pokeman.image} alt={pokeman.name} />
 	<div class="uppercase text-sm font-bold gap-2 flex flex-col w-full justify-between">
 		<div class="text-xs font-extrabold text-gray-500">Nº{pokeman.id}</div>
-		<div>{pokeman.name}</div>
-		<div class="flex flex-wrap gap-2 text-[10px] uppercase justify-center items-center">
+		<div class="capitalize text-lg">{pokeman.name}</div>
+		<div
+			class="flex flex-wrap gap-2 text-[10px] font-extrabold tracking-tight uppercase justify-center items-center"
+		>
 			{#if pokemanTypes}
 				{#each pokemanTypes.types as typeSet}
 					{@const buttonColor = `bg-type-${typeSet.type.name}`}
-					<div class="font-extrabold rounded-lg text-black/60 p-1.5 {buttonColor}">
+					<div class="rounded-lg text-black/60 px-3 py-1 {buttonColor}">
 						{typeSet.type.name}
 					</div>
 				{/each}
