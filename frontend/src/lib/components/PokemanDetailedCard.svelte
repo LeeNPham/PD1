@@ -3,7 +3,6 @@
 	import EyeIcon from '$lib/icons/EyeIcon.svelte';
 	import { onMount } from 'svelte';
 	import EvolutionChain from './EvolutionChain.svelte';
-	import { pokemon } from '$src/stores/pokestore';
 	import Bug from '$lib/icons/types/Bug.svelte';
 	import Dark from '$lib/icons/types/Dark.svelte';
 	import Dragon from '$lib/icons/types/Dragon.svelte';
@@ -71,14 +70,33 @@
 		'special-defense': ['SpD', 'bg-green-300'],
 		speed: ['SPD', 'bg-pink-400']
 	};
+
+	export let pokeId;
 	let showHidden = false;
+	let pokeman;
+	let pokemanGenus;
 	$: hiddenText = showHidden == true ? 'text-gray-800' : 'text-white';
+	// $: {
+	// 	if (pokeId) {
+	// 		const url = `https://pokeapi.co/api/v2/pokemon/${pokeId}`;
+	// 		const res = await fetch(url);
+	// 		pokeman = await res.json();
 
-	export let pokemanGenus;
-	export let pokeman;
-
+	// 		const genusUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokeId}`;
+	// 		const gRes = await fetch(genusUrl);
+	// 		pokemanGenus = await gRes.json();
+	// 	}
+	// }
 	onMount(async () => {
-		// console.log(pokeman);
+		if (pokeId) {
+			const url = `https://pokeapi.co/api/v2/pokemon/${pokeId}`;
+			const res = await fetch(url);
+			pokeman = await res.json();
+
+			const genusUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokeId}`;
+			const gRes = await fetch(genusUrl);
+			pokemanGenus = await gRes.json();
+		}
 	});
 </script>
 
@@ -100,171 +118,173 @@
 <div class="bg-type-fighting" />
 <div class="bg-type-ghost" />
 <div class="bg-type-grass" />
+{#if pokeman && pokemanGenus}
+	<div class="relative">
+		<div class="absolute h-[250px] w-full flex items-center justify-center">
+			<img
+				class="h-full w-auto object-cover"
+				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeman.id}.png`}
+				alt={pokeman.name}
+			/>
+		</div>
+		<div id="placeholderSpace" class="h-[115px]" />
+		<div
+			class="pt-[125px] p-8 w-full h-[875px] rounded-xl bg-white flex flex-col items-start gap-1"
+		>
+			<div class="text-md w-full text-center font-extrabold text-gray-500">#{pokeman.id}</div>
+			<div class="text-3xl w-full text-center font-bold text-gray-900 capitalize">
+				{pokeman.name}
+			</div>
+			<div class="text-primary-gray text-center w-full text-md">{pokemanGenus.genera[7].genus}</div>
+			<div class="flex w-full justify-center gap-2">
+				{#each pokeman.types as types}
+					{@const buttonColor = `bg-type-${types.type.name}`}
+					<div class="font-bold rounded-md text-black/70 px-3 py-1 {buttonColor}">
+						{types.type.name}
+					</div>
+				{/each}
+			</div>
+			<div class="text-center text-sm py-2 w-full uppercase font-bold text-gray-800">
+				pokédex entry
+			</div>
+			<div class="w-full min-h-[55px] text-sm text-black font-medium">
+				{pokemanGenus.flavor_text_entries[14].flavor_text}
+			</div>
+			<div class="text-center py-2 text-sm w-full uppercase font-bold text-gray-800">abilities</div>
+			<div class="flex w-full justify-evenly gap-3">
+				{#each pokeman.abilities as ability}
+					<div
+						class="relative p-1 px-4 text-left w-full whitespace-nowrap border rounded-full font-bold capitalize {ability.is_hidden
+							? `border-red-800 text-gray-800 ${hiddenText}`
+							: 'border-primary-gray text-gray-800'}"
+					>
+						{ability.ability.name}
 
-<div class="relative">
-	<div class="absolute h-[250px] w-full flex items-center justify-center">
-		<img
-			class="h-full w-auto object-cover"
-			src={pokeman.sprites.other['official-artwork'].front_default}
-			alt={pokeman.name}
-		/>
-	</div>
-	<div id="placeholderSpace" class="h-[115px]" />
-	<div class="pt-[125px] p-8 w-full h-[875px] rounded-xl bg-white flex flex-col items-start gap-1">
-		<div class="text-md w-full text-center font-extrabold text-gray-500">#{pokeman.id}</div>
-		<div class="text-3xl w-full text-center font-bold text-gray-900 capitalize">
-			{pokeman.name}
-		</div>
-		<div class="text-primary-gray text-center w-full text-md">{pokemanGenus.genera[7].genus}</div>
-		<div class="flex w-full justify-center gap-2">
-			{#each pokeman.types as types}
-				{@const buttonColor = `bg-type-${types.type.name}`}
-				<div class="font-bold rounded-md text-black/70 px-3 py-1 {buttonColor}">
-					{types.type.name}
-				</div>
-			{/each}
-		</div>
-		<div class="text-center text-sm py-2 w-full uppercase font-bold text-gray-800">
-			pokédex entry
-		</div>
-		<div class="w-full min-h-[55px] text-sm text-black font-medium">
-			{pokemanGenus.flavor_text_entries[14].flavor_text}
-		</div>
-		<div class="text-center py-2 text-sm w-full uppercase font-bold text-gray-800">abilities</div>
-		<div class="flex w-full justify-evenly gap-3">
-			{#each pokeman.abilities as ability}
-				<div
-					class="relative p-1 px-4 text-left w-full whitespace-nowrap border rounded-full font-bold capitalize {ability.is_hidden
-						? `border-red-800 text-gray-800 ${hiddenText}`
-						: 'border-primary-gray text-gray-800'}"
-				>
-					{ability.ability.name}
-
-					{#if ability.is_hidden}
-						<button
-							on:click={() => {
-								showHidden = !showHidden;
-							}}
-							class="absolute right-3 top-[6px]"
-						>
-							{#if showHidden}
-								<EyeIcon Class="h-5 w-5 stroke-red-800 hover:stroke-black" />
-							{:else}
-								<EyeCloseIcon Class="h-5 w-5 stroke-primary-gray hover:stroke-black" />
-							{/if}
-						</button>
-					{/if}
-				</div>
-			{/each}
-		</div>
-		<div class="flex flex-row gap-3 w-full justify-between">
-			<div class="flex flex-col w-1/2 items-center justify-center">
-				<div class="text-center text-sm w-full uppercase font-bold text-gray-800">height</div>
-				<div
-					class="w-full h-auto my-2 py-1 bg-primary-background rounded-full text-center font-bold text-sm"
-				>
-					{(pokeman.height / 10).toFixed(1)}m
-				</div>
-				<div class="text-center text-sm w-full uppercase font-bold text-gray-800">weaknesses</div>
-				<div
-					class="w-full h-auto my-2 py-1 bg-primary-background rounded-full text-center font-bold text-sm flex flex-row justify-evenly"
-				>
-					{#each pokeman.types as types}
-						{#each weaknessesMap[types.type.name] as weakness}
-							<!-- display as weakness badges -->
-							<svelte:component this={iconDict[weakness]} />
+						{#if ability.is_hidden}
+							<button
+								on:click={() => {
+									showHidden = !showHidden;
+								}}
+								class="absolute right-3 top-[6px]"
+							>
+								{#if showHidden}
+									<EyeIcon Class="h-5 w-5 stroke-red-800 hover:stroke-black" />
+								{:else}
+									<EyeCloseIcon Class="h-5 w-5 stroke-primary-gray hover:stroke-black" />
+								{/if}
+							</button>
+						{/if}
+					</div>
+				{/each}
+			</div>
+			<div class="flex flex-row gap-3 w-full justify-between">
+				<div class="flex flex-col w-1/2 items-center justify-center">
+					<div class="text-center text-sm w-full uppercase font-bold text-gray-800">height</div>
+					<div
+						class="w-full h-auto my-2 py-1 bg-primary-background rounded-full text-center font-bold text-sm"
+					>
+						{(pokeman.height / 10).toFixed(1)}m
+					</div>
+					<div class="text-center text-sm w-full uppercase font-bold text-gray-800">weaknesses</div>
+					<div
+						class="w-full h-auto my-2 py-1 bg-primary-background rounded-full text-center font-bold text-sm flex flex-row justify-evenly"
+					>
+						{#each pokeman.types as types}
+							{#each weaknessesMap[types.type.name] as weakness}
+								<svelte:component this={iconDict[weakness]} />
+							{/each}
 						{/each}
-					{/each}
-				</div>
-			</div>
-			<div class="flex flex-col w-1/2 items-center justify-center">
-				<div class="text-center text-sm w-full uppercase font-bold text-gray-800">weight</div>
-				<div
-					class="w-full h-auto my-2 py-1 bg-primary-background rounded-full text-center font-bold text-sm"
-				>
-					{(pokeman.weight / 10).toFixed(1)}Kg
-				</div>
-				<div class="text-center text-sm w-full uppercase font-bold text-gray-800">base exp</div>
-				<div
-					class="w-full h-auto my-2 py-1 bg-primary-background rounded-full text-center font-bold text-sm"
-				>
-					{pokeman.base_experience}
-				</div>
-			</div>
-		</div>
-		<div class="text-center text-sm w-full uppercase font-bold text-gray-800">stats</div>
-		<div class="flex w-full justify-between">
-			{#each pokeman.stats as stat}
-				{@const statName = statMap[stat.stat.name]}
-				<div class="relative h-16 rounded-full bg-gray-200 flex justify-center w-8">
-					<div
-						class="absolute top-1 rounded-full w-7 h-7 overflow-visible items-center justify-center text-white font-semibold text-[10px] flex {statName[1]}"
-					>
-						{statName[0]}
-					</div>
-					<div
-						class="absolute bottom-1 rounded-full w-7 h-7 overflow-visible items-center justify-center text-gray-900 font-extrabold text-[12px] flex"
-					>
-						{stat.base_stat}
 					</div>
 				</div>
-			{/each}
-		</div>
-		<EvolutionChain {pokemanGenus} />
-		<div class="flex flex-row w-full justify-between bg-gray-200 rounded-2xl py-5">
-			<a
-				class="{pokeman.id - 1 == 0
-					? 'hidden'
-					: ''} w-full h-full text-white text-center flex items-center border-r px-4 justify-start gap-4 border-gray-500"
-				href={`/pokemon/${pokeman.id - 1}`}
-			>
-				<div class="text-gray-500 font-extrabold">{`<<`}</div>
-				{#if pokeman.id - 1 <= 649}
-					<img
-						class="h-8 w-auto object-cover"
-						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
-							pokeman.id - 1
-						}.gif`}
-						alt=""
-					/>
-				{:else}
-					<img
-						class="h-8 w-auto object-cover"
-						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-							pokeman.id - 1
-						}.png`}
-						alt=""
-					/>
-				{/if}
-				<div class="text-gray-500">#{pokeman.id - 1}</div>
-			</a>
-			<a
-				class="w-full h-full text-white text-center flex items-center border-l px-4 justify-end gap-4 {pokeman.id +
-					1 ==
-				1009
-					? 'hidden'
-					: ''}"
-				href={`/pokemon/${pokeman.id + 1}`}
-				><div class="text-gray-500">#{pokeman.id + 1}</div>
-				{#if pokeman.id + 1 <= 649}
-					<img
-						class="h-8 w-auto object-cover"
-						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
-							pokeman.id + 1
-						}.gif`}
-						alt=""
-					/>
-				{:else}
-					<img
-						class="h-8 w-auto object-cover"
-						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-							pokeman.id + 1
-						}.png`}
-						alt=""
-					/>
-				{/if}
-				<div class="text-gray-500 font-extrabold">>></div>
-			</a>
+				<div class="flex flex-col w-1/2 items-center justify-center">
+					<div class="text-center text-sm w-full uppercase font-bold text-gray-800">weight</div>
+					<div
+						class="w-full h-auto my-2 py-1 bg-primary-background rounded-full text-center font-bold text-sm"
+					>
+						{(pokeman.weight / 10).toFixed(1)}Kg
+					</div>
+					<div class="text-center text-sm w-full uppercase font-bold text-gray-800">base exp</div>
+					<div
+						class="w-full h-auto my-2 py-1 bg-primary-background rounded-full text-center font-bold text-sm"
+					>
+						{pokeman.base_experience}
+					</div>
+				</div>
+			</div>
+			<div class="text-center text-sm w-full uppercase font-bold text-gray-800">stats</div>
+			<div class="flex w-full justify-between">
+				{#each pokeman.stats as stat}
+					{@const statName = statMap[stat.stat.name]}
+					<div class="relative h-16 rounded-full bg-gray-200 flex justify-center w-8">
+						<div
+							class="absolute top-1 rounded-full w-7 h-7 overflow-visible items-center justify-center text-white font-semibold text-[10px] flex {statName[1]}"
+						>
+							{statName[0]}
+						</div>
+						<div
+							class="absolute bottom-1 rounded-full w-7 h-7 overflow-visible items-center justify-center text-gray-900 font-extrabold text-[12px] flex"
+						>
+							{stat.base_stat}
+						</div>
+					</div>
+				{/each}
+			</div>
+			<EvolutionChain {pokemanGenus} />
+			<div class="flex flex-row w-full justify-between bg-gray-200 rounded-2xl py-5">
+				<a
+					class="{pokeman.id - 1 == 0
+						? 'hidden'
+						: ''} w-full h-full text-white text-center flex items-center border-r px-4 justify-start gap-4 border-gray-500"
+					href={`/pokemon/${pokeman.id - 1}`}
+				>
+					<div class="text-gray-500 font-extrabold">{`<<`}</div>
+					{#if pokeman.id - 1 <= 649 && pokeman.id - 1 > 0}
+						<img
+							class="h-8 w-auto object-cover"
+							src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
+								pokeman.id - 1
+							}.gif`}
+							alt=""
+						/>
+					{:else if pokeman.id - 1 >= 650 && pokeman.id - 1 != 0}
+						<img
+							class="h-8 w-auto object-cover"
+							src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+								pokeman.id - 1
+							}.png`}
+							alt=""
+						/>
+					{/if}
+					<div class="text-gray-500">#{pokeman.id - 1}</div>
+				</a>
+				<a
+					class="w-full h-full text-white text-center flex items-center border-l px-4 justify-end gap-4 {pokeman.id +
+						1 ==
+					1009
+						? 'hidden'
+						: ''}"
+					href={`/pokemon/${pokeman.id + 1}`}
+					><div class="text-gray-500">#{pokeman.id + 1}</div>
+					{#if pokeman.id + 1 <= 649}
+						<img
+							class="h-8 w-auto object-cover"
+							src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
+								pokeman.id + 1
+							}.gif`}
+							alt=""
+						/>
+					{:else}
+						<img
+							class="h-8 w-auto object-cover"
+							src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+								pokeman.id + 1
+							}.png`}
+							alt=""
+						/>
+					{/if}
+					<div class="text-gray-500 font-extrabold">>></div>
+				</a>
+			</div>
 		</div>
 	</div>
-</div>
+{/if}

@@ -3,17 +3,25 @@
 	import { onMount } from 'svelte';
 
 	let pokemanTypes;
+	export let pokeId;
+
 	onMount(async () => {
 		const genusUrl = `https://pokeapi.co/api/v2/pokemon/${pokeman.id}`;
 		const gRes = await fetch(genusUrl);
 		pokemanTypes = await gRes.json();
-		console.log(pokemanTypes.types);
+		// console.log(pokemanTypes.types);
 	});
 </script>
 
-<a
+<!-- <a
 	class="relative pt-10 p-6 w-[225px] bg-white text-gray-800 text-center rounded-2xl shadow-md hover:shadow-lg shadow-primary-gray/20 flex flex-col items-center"
 	href={`/pokemon/${pokeman.id}`}
+> -->
+<button
+	on:click={() => {
+		pokeId = pokeman.id;
+	}}
+	class="relative pt-10 p-6 w-[225px] bg-white text-gray-800 text-center rounded-2xl shadow-md hover:shadow-lg shadow-primary-gray/20 flex flex-col items-center"
 >
 	<img class="absolute boop -top-7 h-14 w-auto" src={pokeman.image} alt={pokeman.name} />
 	<div class="uppercase text-sm font-bold gap-2 flex flex-col w-full justify-between">
@@ -32,7 +40,9 @@
 			{/if}
 		</div>
 	</div>
-</a>
+</button>
+
+<!-- </a> -->
 
 <style>
 	@keyframes boop {

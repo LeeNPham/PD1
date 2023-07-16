@@ -16,6 +16,14 @@
 	let searchTerm = '';
 	let filteredPokemon = [];
 
+	let pokeId = 1;
+
+	$: {
+		if (pokeId) {
+			console.log(pokeId);
+		}
+	}
+
 	$: {
 		if (searchTerm) {
 			//search the pokemon
@@ -75,58 +83,34 @@
 				>
 				<Dropdown class="w-auto p-2 space-y-2 text-sm z-10">
 					<li>
-						<Checkbox>Normal</Checkbox>
+						<Checkbox>All</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Fire</Checkbox>
+						<Checkbox>Kanto</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Water</Checkbox>
+						<Checkbox>Jhoto</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Grass</Checkbox>
+						<Checkbox>Hoenn</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Electric</Checkbox>
+						<Checkbox>Sinnoh</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Ice</Checkbox>
+						<Checkbox>Unova</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Fighting</Checkbox>
+						<Checkbox>Kalos</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Poison</Checkbox>
+						<Checkbox>Alola</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Ground</Checkbox>
+						<Checkbox>Galar</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Flying</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Psychic</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Bug</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Rock</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Ghost</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Dark</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Dragon</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Steel</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Fairy</Checkbox>
+						<Checkbox>Paldea</Checkbox>
 					</li>
 				</Dropdown>
 			</div>
@@ -387,13 +371,14 @@
 		</div>
 	</div>
 
+	<!-- Pokemon -->
 	<div class="flex flex-wrap gap-8 gap-y-12 w-full justify-center py-8">
 		{#each filteredPokemon as pokeman}
-			<PokemanCard {pokeman} />
+			<PokemanCard {pokeman} bind:pokeId />
 		{/each}
 	</div>
 </div>
 
 <div class="w-1/3">
-	<!-- <PokemanDetailedCard /> -->
+	<PokemanDetailedCard bind:pokeId />
 </div>

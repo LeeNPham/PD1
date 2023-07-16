@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import PokemanDetailedCard from '$lib/components/PokemanDetailedCard.svelte';
 
 	export let data;
@@ -8,4 +8,4 @@
 	<div class="w-[400px] scale-90 -translate-y-16">
 		<PokemanDetailedCard pokeman={data.pokeman} pokemanGenus={data.pokemanGenus} />
 	</div>
-</div>
+</div> -->
