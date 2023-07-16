@@ -210,14 +210,6 @@
 						alt=""
 					/>
 				{/if}
-
-				<!-- <img
-					class="h-8 w-auto object-cover"
-					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
-						pokeman.id + 1
-					}.gif`}
-					alt=""
-				/> -->
 				<div>▶</div>
 			</a>
 		</div>
