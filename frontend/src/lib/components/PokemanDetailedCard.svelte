@@ -249,25 +249,21 @@
 	</div>
 </div>
 
-<div class="bg-type-bug h-5 w-5 rounded-full flex items-center justify-center"><Bug /></div>
-<div class="bg-type-dark h-5 w-5 rounded-full flex items-center justify-center"><Dark /></div>
-<div class="bg-type-dragon h-5 w-5 rounded-full flex items-center justify-center"><Dragon /></div>
-<div class="bg-type-electric h-5 w-5 rounded-full flex items-center justify-center">
-	<Electric />
-</div>
-<div class="bg-type-fairy h-5 w-5 rounded-full flex items-center justify-center"><Fairy /></div>
-<div class="bg-type-fighting h-5 w-5 rounded-full flex items-center justify-center">
-	<Fighting />
-</div>
-<div class="bg-type-fire h-5 w-5 rounded-full flex items-center justify-center"><Fire /></div>
-<div class="bg-type-flying h-5 w-5 rounded-full flex items-center justify-center"><Flying /></div>
-<div class="bg-type-ghost h-5 w-5 rounded-full flex items-center justify-center"><Ghost /></div>
-<div class="bg-type-grass h-5 w-5 rounded-full flex items-center justify-center"><Grass /></div>
-<div class="bg-type-ground h-5 w-5 rounded-full flex items-center justify-center"><Ground /></div>
-<div class="bg-type-ice h-5 w-5 rounded-full flex items-center justify-center"><Ice /></div>
-<div class="bg-type-normal h-5 w-5 rounded-full flex items-center justify-center"><Normal /></div>
-<div class="bg-type-poison h-5 w-5 rounded-full flex items-center justify-center"><Poison /></div>
-<div class="bg-type-psychic h-5 w-5 rounded-full flex items-center justify-center"><Psychic /></div>
-<div class="bg-type-rock h-5 w-5 rounded-full flex items-center justify-center"><Rock /></div>
-<div class="bg-type-steel h-5 w-5 rounded-full flex items-center justify-center"><Steel /></div>
-<div class="bg-type-water h-5 w-5 rounded-full flex items-center justify-center"><Water /></div>
+<Bug />
+<Dark />
+<Dragon />
+<Electric />
+<Fairy />
+<Fighting />
+<Fire />
+<Flying />
+<Ghost />
+<Grass />
+<Ground />
+<Ice />
+<Normal />
+<Poison />
+<Psychic />
+<Rock />
+<Steel />
+<Water />
