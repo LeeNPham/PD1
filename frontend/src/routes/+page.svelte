@@ -394,5 +394,5 @@
 </div>
 
 <div class="w-1/3 min-w-[384px]">
-	<PokemanDetailedCard {pokeman} {pokemanGenus} />
+	<PokemanDetailedCard {pokeman} {pokemanGenus} bind:pokeId />
 </div>

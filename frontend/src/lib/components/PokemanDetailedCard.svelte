@@ -72,6 +72,7 @@
 	};
 
 	let showHidden = false;
+	export let pokeId;
 	export let pokeman;
 	export let pokemanGenus;
 	$: hiddenText = showHidden == true ? 'text-gray-800' : 'text-white';
@@ -208,11 +209,13 @@
 			</div>
 			<EvolutionChain {pokemanGenus} />
 			<div class="flex flex-row w-full justify-between bg-gray-200 rounded-2xl py-5">
-				<a
+				<button
+					on:click={() => {
+						pokeId = pokeman.id - 1;
+					}}
 					class="{pokeman.id - 1 == 0
 						? 'hidden'
 						: ''} w-full h-full text-white text-center flex items-center border-r px-4 justify-start gap-4 border-gray-500"
-					href={`/pokemon/${pokeman.id - 1}`}
 				>
 					<div class="text-gray-500 font-extrabold">{`<<`}</div>
 					{#if pokeman.id - 1 <= 649 && pokeman.id - 1 > 0}
@@ -233,14 +236,16 @@
 						/>
 					{/if}
 					<div class="text-gray-500">#{pokeman.id - 1}</div>
-				</a>
-				<a
+				</button>
+				<button
+					on:click={() => {
+						pokeId = pokeman.id + 1;
+					}}
 					class="w-full h-full text-white text-center flex items-center border-l px-4 justify-end gap-4 {pokeman.id +
 						1 ==
 					1009
 						? 'hidden'
 						: ''}"
-					href={`/pokemon/${pokeman.id + 1}`}
 					><div class="text-gray-500">#{pokeman.id + 1}</div>
 					{#if pokeman.id + 1 <= 649}
 						<img
@@ -260,7 +265,7 @@
 						/>
 					{/if}
 					<div class="text-gray-500 font-extrabold">>></div>
-				</a>
+				</button>
 			</div>
 		</div>
 	</div>
