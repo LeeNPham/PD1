@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import EvolutionChain from './EvolutionChain.svelte';
 	import { pokemon } from '$src/stores/pokestore';
+	import Bug from '$lib/icons/types/Bug.svelte';
 
 	const weaknessesMap = {
 		normal: ['fighting'],
@@ -230,3 +231,5 @@
 		</div>
 	</div>
 </div>
+
+<div class="bg-type-bug h-5 w-5 rounded-full flex items-center justify-center"><Bug /></div>
