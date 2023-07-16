@@ -14,7 +14,7 @@
 			const answer = await fetch(url);
 			res = await answer.json();
 			evolutionList.push([res.chain.species.name, await findObjectByName(res.chain.species.name)]);
-			console.log(evolutionList);
+			// console.log(evolutionList);
 			if (res.chain.evolves_to[0]) {
 				evolutionList.push([
 					res.chain.evolves_to[0].species.name,
@@ -71,13 +71,13 @@
 					{evolution[2]}
 				</div>
 			{/if}
-			<button class="flex items-center flex-col justify-center">
+			<div class="flex items-center flex-col justify-center">
 				<img
 					class="h-14"
 					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${evolution[1]}.png`}
 					alt=""
 				/>
-			</button>
+			</div>
 		{/each}
 	</div>
 {:else}
