@@ -39,8 +39,7 @@
 		pokemanGenus = await gRes.json();
 	}
 
-	function handleSubmit(event) {
-		event.preventDefault();
+	$: {
 		if (searchTerm) {
 			filteredPokemon = $pokemon.filter((pokeman) =>
 				pokeman.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -49,7 +48,6 @@
 			filteredPokemon = [...$pokemon];
 		}
 	}
-
 	onMount(() => {
 		fetchData();
 		filteredPokemon = [...$pokemon];
@@ -63,20 +61,19 @@
 <div class="w-2/3">
 	<div class="relative flex flex-col gap-8 pb-5">
 		<!-- this is going - become my search component -->
-		<form on:submit={handleSubmit}>
-			<input
-				class="w-full rounded-xl text-lg p-5 border-0 focus:ring-0 focus:border-0 shadow-lg shadow-black/5"
-				bind:value={searchTerm}
-				type="text"
-				placeholder="Search your Pokémon"
-			/>
-			<button
-				type="submit"
-				class="absolute -p-3 right-3 top-2 shadow-md hover:shadow-primary-activebutton/50 bg-primary-activebutton rounded-xl p-2 w-12 h-12"
-			>
-				<PokeBall Class="fill-white h-full w-full rotate-180" />
-			</button>
-		</form>
+
+		<input
+			class="w-full rounded-xl text-lg p-5 border-0 focus:ring-0 focus:border-0 shadow-lg shadow-black/5"
+			bind:value={searchTerm}
+			type="text"
+			placeholder="Search your Pokémon"
+		/>
+		<button
+			class="absolute -p-3 right-3 top-2 shadow-md hover:shadow-primary-activebutton/50 bg-primary-activebutton rounded-xl p-2 w-12 h-12"
+		>
+			<PokeBall Class="fill-white h-full w-full rotate-180" />
+		</button>
+
 		<!-- filter order by types, power level, weight, height -->
 		<div class="flex justify-between items-center">
 			<div>
