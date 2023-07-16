@@ -33,17 +33,17 @@
 		<a
 			id="tcg"
 			class="whitespace-nowrap gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/"><PokeBall Class="w-8 h-8 fill-inherit" />TCG Pokémon</a
+			href="/tcg"><PokeBall Class="w-8 h-8 fill-inherit" />TCG Pokémon</a
 		>
 		<a
 			id="tv"
 			class="whitespace-nowrap gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/"><TvIcon Class="w-8 h-8 fill-inherit" />TV Pokémon</a
+			href="/pokemontv"><TvIcon Class="w-8 h-8 fill-inherit" />TV Pokémon</a
 		>
 		<a
 			id="play"
 			class="whitespace-nowrap gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/"><TrophyIcon Class="w-6 h-6 fill-inherit" />Play!Pokémon</a
+			href="/play"><TrophyIcon Class="w-6 h-6 fill-inherit" />Play!Pokémon</a
 		>
 		<a
 			id="news"

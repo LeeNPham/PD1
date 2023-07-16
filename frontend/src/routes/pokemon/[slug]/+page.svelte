@@ -5,7 +5,7 @@
 </script>
 
 <div class="flex justify-center w-full">
-	<div class="w-[384px] scale-90 -translate-y-16">
+	<div class="w-[400px] scale-90 -translate-y-16">
 		<PokemanDetailedCard pokeman={data.pokeman} pokemanGenus={data.pokemanGenus} />
 	</div>
 </div>

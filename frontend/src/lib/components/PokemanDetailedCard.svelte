@@ -22,6 +22,26 @@
 	import Rock from '$lib/icons/types/Rock.svelte';
 	import Steel from '$lib/icons/types/Steel.svelte';
 	import Water from '$lib/icons/types/Water.svelte';
+	const iconDict = {
+		bug: Bug,
+		dark: Dark,
+		dragon: Dragon,
+		electric: Electric,
+		fairy: Fairy,
+		fighting: Fighting,
+		fire: Fire,
+		flying: Flying,
+		ghost: Ghost,
+		grass: Grass,
+		ground: Ground,
+		ice: Ice,
+		normal: Normal,
+		poison: Poison,
+		psychic: Psychic,
+		rock: Rock,
+		steel: Steel,
+		water: Water
+	};
 
 	const weaknessesMap = {
 		normal: ['fighting'],
@@ -147,12 +167,12 @@
 				</div>
 				<div class="text-center text-sm w-full uppercase font-bold text-gray-800">weaknesses</div>
 				<div
-					class="w-full h-auto my-2 py-1 bg-primary-background rounded-full text-center font-bold text-sm flex flex-row gap-4"
+					class="w-full h-auto my-2 py-1 bg-primary-background rounded-full text-center font-bold text-sm flex flex-row justify-evenly"
 				>
 					{#each pokeman.types as types}
 						{#each weaknessesMap[types.type.name] as weakness}
-							<div>{weakness}</div>
 							<!-- display as weakness badges -->
+							<svelte:component this={iconDict[weakness]} />
 						{/each}
 					{/each}
 				</div>
@@ -248,22 +268,3 @@
 		</div>
 	</div>
 </div>
-
-<Bug />
-<Dark />
-<Dragon />
-<Electric />
-<Fairy />
-<Fighting />
-<Fire />
-<Flying />
-<Ghost />
-<Grass />
-<Ground />
-<Ice />
-<Normal />
-<Poison />
-<Psychic />
-<Rock />
-<Steel />
-<Water />
