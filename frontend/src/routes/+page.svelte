@@ -21,7 +21,21 @@
 	$: {
 		if (pokeId) {
 			console.log(pokeId);
+			fetchData();
 		}
+	}
+
+	let pokemanGenus;
+	let pokeman;
+
+	async function fetchData() {
+		const url = `https://pokeapi.co/api/v2/pokemon/${pokeId}`;
+		const res = await fetch(url);
+		pokeman = await res.json();
+
+		const genusUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokeId}`;
+		const gRes = await fetch(genusUrl);
+		pokemanGenus = await gRes.json();
 	}
 
 	$: {
@@ -379,6 +393,6 @@
 	</div>
 </div>
 
-<div class="w-1/3">
-	<PokemanDetailedCard bind:pokeId />
+<div class="w-1/3 min-w-[384px]">
+	<PokemanDetailedCard {pokeman} {pokemanGenus} />
 </div>

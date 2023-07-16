@@ -71,33 +71,10 @@
 		speed: ['SPD', 'bg-pink-400']
 	};
 
-	export let pokeId;
 	let showHidden = false;
-	let pokeman;
-	let pokemanGenus;
+	export let pokeman;
+	export let pokemanGenus;
 	$: hiddenText = showHidden == true ? 'text-gray-800' : 'text-white';
-	// $: {
-	// 	if (pokeId) {
-	// 		const url = `https://pokeapi.co/api/v2/pokemon/${pokeId}`;
-	// 		const res = await fetch(url);
-	// 		pokeman = await res.json();
-
-	// 		const genusUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokeId}`;
-	// 		const gRes = await fetch(genusUrl);
-	// 		pokemanGenus = await gRes.json();
-	// 	}
-	// }
-	onMount(async () => {
-		if (pokeId) {
-			const url = `https://pokeapi.co/api/v2/pokemon/${pokeId}`;
-			const res = await fetch(url);
-			pokeman = await res.json();
-
-			const genusUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokeId}`;
-			const gRes = await fetch(genusUrl);
-			pokemanGenus = await gRes.json();
-		}
-	});
 </script>
 
 <div class="bg-type-normal" />

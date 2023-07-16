@@ -9,14 +9,9 @@
 		const genusUrl = `https://pokeapi.co/api/v2/pokemon/${pokeman.id}`;
 		const gRes = await fetch(genusUrl);
 		pokemanTypes = await gRes.json();
-		// console.log(pokemanTypes.types);
 	});
 </script>
 
-<!-- <a
-	class="relative pt-10 p-6 w-[225px] bg-white text-gray-800 text-center rounded-2xl shadow-md hover:shadow-lg shadow-primary-gray/20 flex flex-col items-center"
-	href={`/pokemon/${pokeman.id}`}
-> -->
 <button
 	on:click={() => {
 		pokeId = pokeman.id;
@@ -41,8 +36,6 @@
 		</div>
 	</div>
 </button>
-
-<!-- </a> -->
 
 <style>
 	@keyframes boop {
