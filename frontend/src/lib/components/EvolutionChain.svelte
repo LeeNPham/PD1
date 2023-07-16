@@ -1,72 +1,82 @@
 <script>
 	import { onMount } from 'svelte';
+	import { pokemon } from '$src/stores/pokestore';
 
-	export let pokeman;
 	export let pokemanGenus;
-    let res
-    let evolutionList = []
+
+	let res;
+	let evolutionList = [];
+
+	async function loadEvolutions() {
+		evolutionList = [];
+		try {
+			const url = pokemanGenus.evolution_chain.url;
+			const answer = await fetch(url);
+			res = await answer.json();
+			console.log('erre', res.chain.species.name);
+			evolutionList.push([res.chain.species.name, await findObjectByName(res.chain.species.name)]);
+			console.log(evolutionList);
+			if (res.chain.evolves_to[0]) {
+				evolutionList.push([
+					res.chain.evolves_to[0].species.name,
+					await findObjectByName(res.chain.evolves_to[0].species.name),
+					res.chain.evolves_to[0].evolution_details[0].item
+						? res.chain.evolves_to[0].evolution_details[0].item.name
+						: res.chain.evolves_to[0].evolution_details[0].min_level
+						? `Lvl ${res.chain.evolves_to[0].evolution_details[0].min_level}`
+						: 'Friendship'
+				]);
+			}
+			if (res.chain.evolves_to[0].evolves_to[0]) {
+				evolutionList.push([
+					res.chain.evolves_to[0].evolves_to[0].species.name,
+					await findObjectByName(res.chain.evolves_to[0].evolves_to[0].species.name),
+					res.chain.evolves_to[0].evolves_to[0].evolution_details[0].item
+						? res.chain.evolves_to[0].evolves_to[0].evolution_details[0].item.name
+						: res.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level
+						? `Lvl ${res.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level}`
+						: 'Friendship'
+				]);
+			}
+			evolutionList = evolutionList;
+		} catch (error) {
+			console.error('Error loading evolutions:', error);
+		}
+	}
+
+	async function findObjectByName(pokemanName) {
+		const res1 = await $pokemon.find((obj) => obj.name === pokemanName);
+		return res1.id;
+	}
+
+	$: {
+		if (pokemanGenus) {
+			loadEvolutions();
+		}
+	}
 
 	onMount(async () => {
-		console.log('hello world');
-		const url = pokemanGenus.evolution_chain.url;
-		const answer = await fetch(url);
-		res = await answer.json();
-		console.log(res);
-        evolutionList.push([res.chain.species.name])
-        if (res.chain.evolves_to){
-            evolutionList.push([res.chain.evolves_to[0].species.name, res.chain.evolves_to[0].evolution_details[0].min_level])
-        }
-        if (res.chain.evolves_to[0].evolves_to) {
-            evolutionList.push([res.chain.evolves_to[0].evolves_to[0].species.name, res.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level])
-        }
-        console.log('evlist',evolutionList)
-        evolutionList=evolutionList
-
+		// console.log($pokemon);
 	});
 </script>
 
-<div class="text-center text-sm w-full uppercase font-bold text-gray-800">evolution</div>
+<div class="text-center text-sm w-full uppercase font-bold text-gray-800 pt-2">evolution</div>
 
-<div class='flex flex-row justify-between w-full items-center'>
-{#each evolutionList as evolution}
-
-{#if evolution[1]}
-<div class='bg-gray-200 px-2 py-1.5 flex items-center rounded-full text-xs font-extrabold whitespace-nowrap text-gray-500'>Lvl {evolution[1]}</div>
-{/if}
-<div class='flex items-center flex-col justify-center'>
-    <div>img</div>
-<div class="text-center w-full uppercase font-extrabold text-xs text-gray-500">{evolution[0]}</div>
-</div>
-{/each}
-</div>
-
-
-<div class="flex w-full justify-between items-center min-h-[100px]">
-	{#if pokemanGenus.evolves_from_species}
-		<div class="flex flex-col justify-center items-center">
+<div class="flex flex-row justify-between w-full items-center min-h-[70px]">
+	{#each evolutionList as evolution}
+		{#if evolution[2]}
+			<div
+				class="bg-gray-200 px-2 py-1.5 flex items-center rounded-full text-[12px] font-extrabold whitespace-nowrap text-gray-400"
+			>
+				{evolution[2]}
+			</div>
+		{/if}
+		<a href="/pokemon/{evolution[1]}" class="flex items-center flex-col justify-center">
 			<img
-				class="h-10 w-10 object-cover"
-				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-					pokeman.id - 1
-				}.png`}
+				class="h-14"
+				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${evolution[1]}.png`}
 				alt=""
 			/>
-			<div class="text-center w-full uppercase font-extrabold text-gray-500 text-xs">
-				{pokemanGenus.evolves_from_species.name}
-			</div>
-		</div>
-		<div class="bg-gray-200 rounded-full p-1 px-2 text-xs font-bold text-gray-500">evolves to</div>
-		<div class="flex flex-col justify-center items-center">
-			<img
-				class="h-10 w-10 object-cover"
-				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeman.id}.png`}
-				alt=""
-			/>
-			<div class="text-center w-full uppercase font-extrabold text-xs text-gray-500">
-				{pokeman.name}
-			</div>
-		</div>
-	{:else}
-		<div class="text-center w-full text-xl font-semibold text-black">No Pre-Evolution</div>
-	{/if}
+		</a>
+	{/each}
 </div>

@@ -39,7 +39,7 @@
 	export let pokeman;
 
 	onMount(async () => {
-		console.log(pokeman);
+		// console.log(pokeman);
 	});
 </script>
 
@@ -82,7 +82,7 @@
 			pokédex entry
 		</div>
 		<div class="w-full min-h-[55px] text-sm text-black font-medium">
-			{pokemanGenus.flavor_text_entries[1].flavor_text}
+			{pokemanGenus.flavor_text_entries[14].flavor_text}
 		</div>
 		<div class="text-center py-2 text-sm w-full uppercase font-bold text-gray-800">abilities</div>
 		<div class="flex w-full justify-evenly gap-3">
@@ -164,32 +164,60 @@
 				</div>
 			{/each}
 		</div>
-		<EvolutionChain {pokeman} {pokemanGenus} />
-		<div class="flex flex-row w-full justify-between bg-gray-200 rounded-md py-2">
+		<EvolutionChain {pokemanGenus} />
+		<div class="flex flex-row w-full justify-between bg-gray-200 rounded-2xl py-5">
 			<a
 				class="w-full h-full text-white text-center flex items-center border-r px-4 justify-start gap-4 border-gray-500"
 				href={`/pokemon/${pokeman.id - 1}`}
 			>
 				<div>◀</div>
-				<img
-					class="h-14 w-auto object-cover"
-					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
-						pokeman.id - 1
-					}.gif`}
-					alt=""
-				/>
+				{#if pokeman.id - 1 <= 649}
+					<img
+						class="h-8 w-auto object-cover"
+						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
+							pokeman.id - 1
+						}.gif`}
+						alt=""
+					/>
+				{:else}
+					<img
+						class="h-8 w-auto object-cover"
+						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+							pokeman.id - 1
+						}.png`}
+						alt=""
+					/>
+				{/if}
 			</a>
 			<a
 				class="w-full h-full text-white text-center flex items-center border-l px-4 justify-end gap-4"
 				href={`/pokemon/${pokeman.id + 1}`}
 			>
-				<img
-					class="h-14 w-auto object-cover"
+				{#if pokeman.id + 1 <= 649}
+					<img
+						class="h-8 w-auto object-cover"
+						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
+							pokeman.id + 1
+						}.gif`}
+						alt=""
+					/>
+				{:else}
+					<img
+						class="h-8 w-auto object-cover"
+						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+							pokeman.id + 1
+						}.png`}
+						alt=""
+					/>
+				{/if}
+
+				<!-- <img
+					class="h-8 w-auto object-cover"
 					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
 						pokeman.id + 1
 					}.gif`}
 					alt=""
-				/>
+				/> -->
 				<div>▶</div>
 			</a>
 		</div>
