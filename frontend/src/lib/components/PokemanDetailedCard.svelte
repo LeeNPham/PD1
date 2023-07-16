@@ -2,6 +2,7 @@
 	import EyeCloseIcon from '$lib/icons/EyeCloseIcon.svelte';
 	import EyeIcon from '$lib/icons/EyeIcon.svelte';
 	import { onMount } from 'svelte';
+	import EvolutionChain from './EvolutionChain.svelte';
 
 	const weaknessesMap = {
 		normal: ['fighting'],
@@ -49,6 +50,10 @@
 <div class="bg-type-water" />
 <div class="bg-type-electric" />
 <div class="bg-type-bug" />
+<div class="bg-type-poison" />
+<div class="bg-type-psychic" />
+<div class="bg-type-ice" />
+<div class="bg-type-rock" />
 
 <div class="relative">
 	<div class="absolute h-[250px] w-full flex items-center justify-center">
@@ -159,38 +164,7 @@
 				</div>
 			{/each}
 		</div>
-		<div class="text-center text-sm w-full uppercase font-bold text-gray-800">evolution</div>
-		<div class="flex w-full justify-between items-center min-h-[100px]">
-			{#if pokemanGenus.evolves_from_species}
-				<div class="flex flex-col justify-center items-center">
-					<img
-						class="h-10 w-10 object-cover"
-						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-							pokeman.id - 1
-						}.png`}
-						alt=""
-					/>
-					<div class="text-center w-full uppercase font-extrabold text-gray-500 text-xs">
-						{pokemanGenus.evolves_from_species.name}
-					</div>
-				</div>
-				<div class="bg-gray-200 rounded-full p-1 px-2 text-xs font-bold text-gray-500">
-					evolves to
-				</div>
-				<div class="flex flex-col justify-center items-center">
-					<img
-						class="h-10 w-10 object-cover"
-						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeman.id}.png`}
-						alt=""
-					/>
-					<div class="text-center w-full uppercase font-extrabold text-xs text-gray-500">
-						{pokeman.name}
-					</div>
-				</div>
-			{:else}
-				<div class="text-center w-full text-xl font-semibold text-black">No Pre-Evolution</div>
-			{/if}
-		</div>
+		<EvolutionChain {pokeman} {pokemanGenus} />
 		<div class="flex flex-row w-full justify-between bg-gray-200 rounded-md py-2">
 			<a
 				class="w-full h-full text-white text-center flex items-center border-r px-4 justify-start gap-4 border-gray-500"
