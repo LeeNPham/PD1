@@ -54,6 +54,13 @@
 <div class="bg-type-psychic" />
 <div class="bg-type-ice" />
 <div class="bg-type-rock" />
+<div class="bg-type-fairy" />
+<div class="bg-type-fire" />
+<div class="bg-type-dark" />
+<div class="bg-type-dragon" />
+<div class="bg-type-fighting" />
+<div class="bg-type-ghost" />
+<div class="bg-type-grass" />
 
 <div class="relative">
 	<div class="absolute h-[250px] w-full flex items-center justify-center">
