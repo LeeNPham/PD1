@@ -17,7 +17,7 @@
 		<a
 			id="home"
 			class="whitespace-nowrap gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/"><PokemonLogo Class="w-16 h-16 fill-inherit" /></a
+			href="/about"><PokemonLogo Class="w-16 h-16 fill-inherit" /></a
 		>
 
 		<a
@@ -48,7 +48,7 @@
 		<a
 			id="news"
 			class="whitespace-nowrap gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/about"><NewsIcon Class="w-8 h-8 fill-inherit" />News</a
+			href="/news"><NewsIcon Class="w-8 h-8 fill-inherit" />News</a
 		>
 	</div>
 </nav>
