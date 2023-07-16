@@ -54,9 +54,9 @@
 		}
 	}
 
-	onMount(async () => {
-		// console.log($pokemon);
-	});
+	// onMount(async () => {
+	// 	loadEvolutions();
+	// });
 </script>
 
 <div class="text-center text-sm w-full uppercase font-bold text-gray-800 pt-2">evolution</div>
@@ -71,13 +71,13 @@
 					{evolution[2]}
 				</div>
 			{/if}
-			<a href="/pokemon/{evolution[1]}" class="flex items-center flex-col justify-center">
+			<button class="flex items-center flex-col justify-center">
 				<img
 					class="h-14"
 					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${evolution[1]}.png`}
 					alt=""
 				/>
-			</a>
+			</button>
 		{/each}
 	</div>
 {:else}

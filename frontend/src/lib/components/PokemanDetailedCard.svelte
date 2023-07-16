@@ -208,6 +208,7 @@
 				{/each}
 			</div>
 			<EvolutionChain {pokemanGenus} />
+
 			<div class="flex flex-row w-full justify-between bg-gray-200 rounded-2xl py-5">
 				<button
 					on:click={() => {

@@ -62,7 +62,7 @@
 
 <div class="w-2/3">
 	<div class="relative flex flex-col gap-8 pb-5">
-		<!-- this is going to become my search component -->
+		<!-- this is going - become my search component -->
 		<form on:submit={handleSubmit}>
 			<input
 				class="w-full rounded-xl text-lg p-5 border-0 focus:ring-0 focus:border-0 shadow-lg shadow-black/5"
@@ -72,7 +72,7 @@
 			/>
 			<button
 				type="submit"
-				class="absolute top-3 right-3 shadow-md hover:shadow-primary-activebutton/50 bg-primary-activebutton rounded-xl p-2 w-12 h-12"
+				class="absolute -p-3 right-3 shadow-md hover:shadow-primary-activebutton/50 bg-primary-activebutton rounded-xl p-2 w-12 h-12"
 			>
 				<PokeBall Class="fill-white h-full w-full rotate-180" />
 			</button>
@@ -268,58 +268,46 @@
 				>
 				<Dropdown class="w-auto p-2 space-y-2 text-sm z-10">
 					<li>
-						<Checkbox>Normal</Checkbox>
+						<Checkbox>0.0 m - 0.5 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Fire</Checkbox>
+						<Checkbox>0.6 m - 1.2 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Water</Checkbox>
+						<Checkbox>1.3 m - 1.8 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Grass</Checkbox>
+						<Checkbox>1.9 m - 2.7 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Electric</Checkbox>
+						<Checkbox>2.8 m - 3.6 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Ice</Checkbox>
+						<Checkbox>4.0 m - 4.2 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Fighting</Checkbox>
+						<Checkbox>4.5 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Poison</Checkbox>
+						<Checkbox>5.0 m - 5.8 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Ground</Checkbox>
+						<Checkbox>6.1 m - 6.9 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Flying</Checkbox>
+						<Checkbox>7.0 m - 9.8 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Psychic</Checkbox>
+						<Checkbox>10.5 m - 12.0 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Bug</Checkbox>
+						<Checkbox>14.5 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Rock</Checkbox>
+						<Checkbox>20.0 m</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Ghost</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Dark</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Dragon</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Steel</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Fairy</Checkbox>
+						<Checkbox>100.0 m</Checkbox>
 					</li>
 				</Dropdown>
 			</div>
@@ -330,58 +318,52 @@
 				>
 				<Dropdown class="w-auto p-2 space-y-2 text-sm z-10">
 					<li>
-						<Checkbox>Normal</Checkbox>
+						<Checkbox>0.0kg - 9.9kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Fire</Checkbox>
+						<Checkbox>10.0kg - 20.0kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Water</Checkbox>
+						<Checkbox>20.1kg - 24.9kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Grass</Checkbox>
+						<Checkbox>25.0kg - 49.9kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Electric</Checkbox>
+						<Checkbox>50kg - 59.9kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Ice</Checkbox>
+						<Checkbox>60kg - 98.9kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Fighting</Checkbox>
+						<Checkbox>99.0kg - 99.9kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Poison</Checkbox>
+						<Checkbox>100.0kg - 102.3kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Ground</Checkbox>
+						<Checkbox>102.4kg - 149.9kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Flying</Checkbox>
+						<Checkbox>150.0kg - 199.9kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Psychic</Checkbox>
+						<Checkbox>200.0kg - 204.7kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Bug</Checkbox>
+						<Checkbox>204.8kg - 299.9kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Rock</Checkbox>
+						<Checkbox>300.0kg - 307.1kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Ghost</Checkbox>
+						<Checkbox>307.2kg - 359.9kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Dark</Checkbox>
+						<Checkbox>360.0kg - 409.5kg</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Dragon</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Steel</Checkbox>
-					</li>
-					<li>
-						<Checkbox>Fairy</Checkbox>
+						<Checkbox>409.6kg - 999.9kg</Checkbox>
 					</li>
 				</Dropdown>
 			</div>
