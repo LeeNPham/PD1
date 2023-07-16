@@ -5,6 +5,23 @@
 	import EvolutionChain from './EvolutionChain.svelte';
 	import { pokemon } from '$src/stores/pokestore';
 	import Bug from '$lib/icons/types/Bug.svelte';
+	import Dark from '$lib/icons/types/Dark.svelte';
+	import Dragon from '$lib/icons/types/Dragon.svelte';
+	import Electric from '$lib/icons/types/Electric.svelte';
+	import Fairy from '$lib/icons/types/Fairy.svelte';
+	import Fighting from '$lib/icons/types/Fighting.svelte';
+	import Fire from '$lib/icons/types/Fire.svelte';
+	import Flying from '$lib/icons/types/Flying.svelte';
+	import Ghost from '$lib/icons/types/Ghost.svelte';
+	import Grass from '$lib/icons/types/Grass.svelte';
+	import Ground from '$lib/icons/types/Ground.svelte';
+	import Ice from '$lib/icons/types/Ice.svelte';
+	import Normal from '$lib/icons/types/Normal.svelte';
+	import Poison from '$lib/icons/types/Poison.svelte';
+	import Psychic from '$lib/icons/types/Psychic.svelte';
+	import Rock from '$lib/icons/types/Rock.svelte';
+	import Steel from '$lib/icons/types/Steel.svelte';
+	import Water from '$lib/icons/types/Water.svelte';
 
 	const weaknessesMap = {
 		normal: ['fighting'],
@@ -233,3 +250,24 @@
 </div>
 
 <div class="bg-type-bug h-5 w-5 rounded-full flex items-center justify-center"><Bug /></div>
+<div class="bg-type-dark h-5 w-5 rounded-full flex items-center justify-center"><Dark /></div>
+<div class="bg-type-dragon h-5 w-5 rounded-full flex items-center justify-center"><Dragon /></div>
+<div class="bg-type-electric h-5 w-5 rounded-full flex items-center justify-center">
+	<Electric />
+</div>
+<div class="bg-type-fairy h-5 w-5 rounded-full flex items-center justify-center"><Fairy /></div>
+<div class="bg-type-fighting h-5 w-5 rounded-full flex items-center justify-center">
+	<Fighting />
+</div>
+<div class="bg-type-fire h-5 w-5 rounded-full flex items-center justify-center"><Fire /></div>
+<div class="bg-type-flying h-5 w-5 rounded-full flex items-center justify-center"><Flying /></div>
+<div class="bg-type-ghost h-5 w-5 rounded-full flex items-center justify-center"><Ghost /></div>
+<div class="bg-type-grass h-5 w-5 rounded-full flex items-center justify-center"><Grass /></div>
+<div class="bg-type-ground h-5 w-5 rounded-full flex items-center justify-center"><Ground /></div>
+<div class="bg-type-ice h-5 w-5 rounded-full flex items-center justify-center"><Ice /></div>
+<div class="bg-type-normal h-5 w-5 rounded-full flex items-center justify-center"><Normal /></div>
+<div class="bg-type-poison h-5 w-5 rounded-full flex items-center justify-center"><Poison /></div>
+<div class="bg-type-psychic h-5 w-5 rounded-full flex items-center justify-center"><Psychic /></div>
+<div class="bg-type-rock h-5 w-5 rounded-full flex items-center justify-center"><Rock /></div>
+<div class="bg-type-steel h-5 w-5 rounded-full flex items-center justify-center"><Steel /></div>
+<div class="bg-type-water h-5 w-5 rounded-full flex items-center justify-center"><Water /></div>
