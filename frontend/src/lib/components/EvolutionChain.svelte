@@ -2,9 +2,15 @@
 	import { onMount } from 'svelte';
 	import { pokemon } from '$src/stores/pokestore';
 
+	/**
+	 * @type {{ evolution_chain: { url: any; }; }}
+	 */
 	export let pokemanGenus;
 
 	let res;
+	/**
+	 * @type {any[]}
+	 */
 	let evolutionList = [];
 
 	async function loadEvolutions() {
@@ -14,7 +20,6 @@
 			const answer = await fetch(url);
 			res = await answer.json();
 			evolutionList.push([res.chain.species.name, await findObjectByName(res.chain.species.name)]);
-			// console.log(evolutionList);
 			if (res.chain.evolves_to[0]) {
 				evolutionList.push([
 					res.chain.evolves_to[0].species.name,
@@ -43,6 +48,9 @@
 		}
 	}
 
+	/**
+	 * @param {any} pokemanName
+	 */
 	async function findObjectByName(pokemanName) {
 		const res1 = await $pokemon.find((obj) => obj.name === pokemanName);
 		return res1.id;
