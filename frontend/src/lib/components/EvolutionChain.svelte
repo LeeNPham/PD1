@@ -54,9 +54,9 @@
 		}
 	}
 
-	// onMount(async () => {
-	// 	loadEvolutions();
-	// });
+	onMount(async () => {
+		// loadEvolutions();
+	});
 </script>
 
 <div class="text-center text-sm w-full uppercase font-bold text-gray-800 pt-2">evolution</div>

@@ -28,7 +28,7 @@
 		<a
 			id="videogames"
 			class="whitespace-nowrap gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
-			href="/videogames"><DpadIcon Class="w-6 h-6 fill-inherit" /> Videogames</a
+			href="/videogames"><DpadIcon Class="w-6 h-6 fill-inherit" /> VGC Pokémon</a
 		>
 		<a
 			id="tcg"

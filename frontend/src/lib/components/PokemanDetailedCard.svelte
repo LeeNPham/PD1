@@ -21,6 +21,9 @@
 	import Rock from '$lib/icons/types/Rock.svelte';
 	import Steel from '$lib/icons/types/Steel.svelte';
 	import Water from '$lib/icons/types/Water.svelte';
+	import Male from '$lib/icons/Male.svelte';
+	import Female from '$lib/icons/Female.svelte';
+	import Shiny from '$lib/icons/Shiny.svelte';
 	const iconDict = {
 		bug: Bug,
 		dark: Dark,
@@ -72,10 +75,15 @@
 	};
 
 	let showHidden = false;
+	let sexImg = true;
 	export let pokeId;
 	export let pokeman;
 	export let pokemanGenus;
 	$: hiddenText = showHidden == true ? 'text-gray-800' : 'text-white';
+
+	onMount(() => {
+		console.log(pokeman);
+	});
 </script>
 
 <div class="bg-type-normal" />
@@ -99,11 +107,30 @@
 {#if pokeman && pokemanGenus}
 	<div class="relative">
 		<div class="absolute h-[250px] w-full flex items-center justify-center">
-			<img
-				class="h-full w-auto object-cover"
-				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeman.id}.png`}
-				alt={pokeman.name}
-			/>
+			{#if sexImg == true}
+				<img
+					class="h-full w-auto object-cover"
+					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeman.id}.png`}
+					alt={pokeman.name}
+				/>
+			{:else}
+				<img
+					class="h-full w-auto object-cover"
+					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${pokeman.id}.png`}
+					alt={pokeman.name}
+				/>
+			{/if}
+			<div class="absolute flex flex-col gap-2 top-[135px] right-4">
+				<button
+					type="button"
+					on:click={() => {
+						sexImg = !sexImg;
+					}}
+					class=" rounded-lg hover:bg-yellow-600 bg-yellow-400 p-1"
+				>
+					<Shiny Class="w-6 h-6 fill-yellow-300" />
+				</button>
+			</div>
 		</div>
 		<div id="placeholderSpace" class="h-[115px]" />
 		<div
