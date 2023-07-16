@@ -17,7 +17,7 @@
 	let searchTerm = '';
 	let filteredPokemon = [];
 
-	let pokeId = 1;
+	let pokeId;
 
 	$: {
 		if (pokeId) {
