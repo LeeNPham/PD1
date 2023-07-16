@@ -13,7 +13,6 @@
 			const url = pokemanGenus.evolution_chain.url;
 			const answer = await fetch(url);
 			res = await answer.json();
-			console.log('erre', res.chain.species.name);
 			evolutionList.push([res.chain.species.name, await findObjectByName(res.chain.species.name)]);
 			console.log(evolutionList);
 			if (res.chain.evolves_to[0]) {
@@ -40,7 +39,7 @@
 			}
 			evolutionList = evolutionList;
 		} catch (error) {
-			console.error('Error loading evolutions:', error);
+			console.log('No evolution chain');
 		}
 	}
 

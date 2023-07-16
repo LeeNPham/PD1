@@ -3,6 +3,7 @@
 	import EyeIcon from '$lib/icons/EyeIcon.svelte';
 	import { onMount } from 'svelte';
 	import EvolutionChain from './EvolutionChain.svelte';
+	import { pokemon } from '$src/stores/pokestore';
 
 	const weaknessesMap = {
 		normal: ['fighting'],
@@ -174,7 +175,9 @@
 		<EvolutionChain {pokemanGenus} />
 		<div class="flex flex-row w-full justify-between bg-gray-200 rounded-2xl py-5">
 			<a
-				class="w-full h-full text-white text-center flex items-center border-r px-4 justify-start gap-4 border-gray-500"
+				class="{pokeman.id - 1 == 0
+					? 'hidden'
+					: ''} w-full h-full text-white text-center flex items-center border-r px-4 justify-start gap-4 border-gray-500"
 				href={`/pokemon/${pokeman.id - 1}`}
 			>
 				<div>◀</div>
@@ -197,7 +200,11 @@
 				{/if}
 			</a>
 			<a
-				class="w-full h-full text-white text-center flex items-center border-l px-4 justify-end gap-4"
+				class="w-full h-full text-white text-center flex items-center border-l px-4 justify-end gap-4{pokeman.id +
+					1 ==
+				1009
+					? 'hidden'
+					: ''}"
 				href={`/pokemon/${pokeman.id + 1}`}
 			>
 				{#if pokeman.id + 1 <= 649}
