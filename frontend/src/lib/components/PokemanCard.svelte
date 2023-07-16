@@ -1,22 +1,33 @@
 <script>
 	export let pokeman;
+	import { onMount } from 'svelte';
+
+	let pokemanTypes;
+	onMount(async () => {
+		const genusUrl = `https://pokeapi.co/api/v2/pokemon/${pokeman.id}`;
+		const gRes = await fetch(genusUrl);
+		pokemanTypes = await gRes.json();
+		console.log(pokemanTypes.types);
+	});
 </script>
 
 <a
 	class="relative pt-10 p-6 w-[225px] h-[150px] bg-white text-gray-800 text-center rounded-2xl shadow-md hover:shadow-lg shadow-primary-gray/20 flex flex-col items-center"
 	href={`/pokemon/${pokeman.id}`}
 >
-	<img
-		class="absolute boop -top-7 h-10 w-auto"
-		src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokeman.id}.gif`}
-		alt={pokeman.name}
-	/>
+	<img class="absolute boop -top-7 h-10 w-auto" src={pokeman.image} alt={pokeman.name} />
 	<div class="uppercase text-sm font-bold gap-2 flex flex-col w-full justify-between">
 		<div class="text-xs font-extrabold text-gray-500">Nº{pokeman.id}</div>
 		<div>{pokeman.name}</div>
-		<div class="flex flex-wrap gap-2 text-xs font-bold uppercase justify-center items-center">
-			<button class="p-1 px-2 rounded-md bg-type-grass uppercase">grass</button>
-			<button class="p-1 px-2 rounded-md bg-type-fire uppercase">fire</button>
+		<div class="flex flex-wrap gap-2 text-[10px] uppercase justify-center items-center">
+			{#if pokemanTypes}
+				{#each pokemanTypes.types as typeSet}
+					{@const buttonColor = `bg-type-${typeSet.type.name}`}
+					<div class="font-extrabold rounded-lg text-black/60 p-1.5 {buttonColor}">
+						{typeSet.type.name}
+					</div>
+				{/each}
+			{/if}
 		</div>
 	</div>
 </a>
