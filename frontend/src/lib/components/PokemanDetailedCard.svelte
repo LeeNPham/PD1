@@ -105,7 +105,7 @@
 <div class="bg-type-ghost" />
 <div class="bg-type-grass" />
 {#if pokeman && pokemanGenus}
-	<div class="relative">
+	<div class="relative scale-[85%]">
 		<div class="absolute h-[250px] w-full flex items-center justify-center">
 			{#if sexImg == true}
 				<img

@@ -10,7 +10,7 @@
 	// create some sort of onclick, have it grab the elements id value and re-assign the value of pageLocation to it
 </script>
 
-<nav class="sticky z-10 top-0 flex items-center justify-center w-full h-auto py-4">
+<nav class=" flex items-center justify-center w-full h-auto py-4">
 	<div
 		class="px-16 bg-white flex flex-row max-w-6xl w-full justify-between items-center h-20 text-gray-500 font-semibold rounded-xl shadow-lg shadow-black/5"
 	>

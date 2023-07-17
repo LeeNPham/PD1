@@ -381,6 +381,6 @@
 	</div>
 </div>
 
-<div class="w-1/3 min-w-[384px]">
+<div class="sticky top-0 right-0 w-1/3 min-w-[384px]">
 	<PokemanDetailedCard {pokeman} {pokemanGenus} bind:pokeId />
 </div>
