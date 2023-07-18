@@ -82,7 +82,8 @@
 	$: hiddenText = showHidden == true ? 'text-gray-800' : 'text-white';
 
 	onMount(() => {
-		console.log(pokeman);
+		// console.log(pokeman);
+		console.log(pokemanGenus);
 	});
 </script>
 
@@ -140,7 +141,13 @@
 			<div class="text-3xl w-full text-center font-bold text-gray-900 capitalize">
 				{pokeman.name}
 			</div>
-			<div class="text-primary-gray text-center w-full text-md">{pokemanGenus.genera[7].genus}</div>
+			<div class="text-primary-gray text-center w-full text-md">
+				{#if pokeId < 899}
+					{pokemanGenus.genera[7].genus}
+				{:else if pokeId > 899}
+					{pokemanGenus.genera[3].genus}
+				{/if}
+			</div>
 			<div class="flex w-full justify-center gap-2">
 				{#each pokeman.types as types}
 					{@const buttonColor = `bg-type-${types.type.name}`}
@@ -153,7 +160,26 @@
 				pokédex entry
 			</div>
 			<div class="w-full min-h-[55px] text-sm text-black font-medium">
-				{pokemanGenus.flavor_text_entries[14].flavor_text}
+				<!-- {pokemanGenus.flavor_text_entries[14].flavor_text} -->
+				{#if pokeId < 387}
+					{pokemanGenus.flavor_text_entries[14].flavor_text}
+				{:else if pokeId < 494}
+					{pokemanGenus.flavor_text_entries[2].flavor_text}
+				{:else if pokeId < 646}
+					{pokemanGenus.flavor_text_entries[1].flavor_text}
+				{:else if pokeId < 647}
+					{pokemanGenus.flavor_text_entries[2].flavor_text}
+				{:else if pokeId < 649}
+					{pokemanGenus.flavor_text_entries[0].flavor_text}
+				{:else if pokeId < 650}
+					{pokemanGenus.flavor_text_entries[1].flavor_text}
+				{:else if pokeId < 721}
+					{pokemanGenus.flavor_text_entries[6].flavor_text}
+				{:else if pokeId < 899}
+					{pokemanGenus.flavor_text_entries[7].flavor_text}
+				{:else}
+					{pokemanGenus.flavor_text_entries[0].flavor_text}
+				{/if}
 			</div>
 			<div class="text-center py-2 text-sm w-full uppercase font-bold text-gray-800">abilities</div>
 			<div class="flex w-full justify-evenly gap-3">
