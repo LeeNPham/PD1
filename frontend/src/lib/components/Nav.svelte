@@ -16,7 +16,7 @@
 	>
 		<a
 			id="home"
-			class="whitespace-nowrap gap-2 text-lg text-primary-navbutton fill-primary-navbutton hover:fill-primary-activebutton hover:text-primary-activebutton flex items-center"
+			class="whitespace-nowrap gap-2 text-lg fill-primary-navbutton hover:fill-blue-700 flex items-center"
 			href="/about"><PokemonLogo Class="w-16 h-16 fill-inherit" /></a
 		>
 
