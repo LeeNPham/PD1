@@ -144,8 +144,10 @@
 			<div class="text-primary-gray text-center w-full text-md">
 				{#if pokeId < 899}
 					{pokemanGenus.genera[7].genus}
-				{:else if pokeId > 899}
+				{:else if pokeId >= 899}
 					{pokemanGenus.genera[3].genus}
+				{:else}
+					{pokemanGenus.genera[0].genus}
 				{/if}
 			</div>
 			<div class="flex w-full justify-center gap-2">
