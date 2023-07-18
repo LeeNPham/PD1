@@ -18,11 +18,12 @@
 	let filteredPokemon = [];
 
 	let pokeId = 1;
+	let startFlag = false;
 
 	$: {
-		if (pokeId) {
-			console.log(pokeId);
+		if (pokeId != 1 || startFlag == true) {
 			fetchData();
+			startFlag = true;
 		}
 	}
 
