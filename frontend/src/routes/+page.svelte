@@ -14,30 +14,19 @@
 		DropdownDivider
 	} from 'flowbite-svelte';
 	import { onMount } from 'svelte';
+
 	let searchTerm = '';
 	let filteredPokemon = [];
-
 	let pokeId = 1;
 	let startFlag = false;
+	let pokemanGenus;
+	let pokeman;
 
 	$: {
 		if (pokeId != 1 || startFlag == true) {
 			fetchData();
 			startFlag = true;
 		}
-	}
-
-	let pokemanGenus;
-	let pokeman;
-
-	async function fetchData() {
-		const url = `https://pokeapi.co/api/v2/pokemon/${pokeId}`;
-		const res = await fetch(url);
-		pokeman = await res.json();
-
-		const genusUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokeId}`;
-		const gRes = await fetch(genusUrl);
-		pokemanGenus = await gRes.json();
 	}
 
 	$: {
@@ -49,6 +38,17 @@
 			filteredPokemon = [...$pokemon];
 		}
 	}
+
+	async function fetchData() {
+		const url = `https://pokeapi.co/api/v2/pokemon/${pokeId}`;
+		const res = await fetch(url);
+		pokeman = await res.json();
+
+		const genusUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokeId}`;
+		const gRes = await fetch(genusUrl);
+		pokemanGenus = await gRes.json();
+	}
+
 	onMount(() => {
 		fetchData();
 		filteredPokemon = [...$pokemon];
