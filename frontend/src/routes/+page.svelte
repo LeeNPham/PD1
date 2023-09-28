@@ -21,6 +21,7 @@
 	let startFlag = false;
 	let pokemanGenus;
 	let pokeman;
+	let order = true;
 
 	$: {
 		if (pokeId != 1 || startFlag == true) {
@@ -36,6 +37,14 @@
 			);
 		} else {
 			filteredPokemon = [...$pokemon];
+		}
+	}
+
+	$: {
+		if (order == true) {
+			filteredPokemon = [...$pokemon];
+		} else {
+			filteredPokemon = filteredPokemon.reverse();
 		}
 	}
 
@@ -79,13 +88,17 @@
 		<div class="flex justify-between items-center">
 			<div>
 				<Button
-					class="w-32 justify-between focus:border-0 focus:ring-0 text-gray-900 font-semibold text-md px-2 py-2 "
-					><Chevron>Ascending</Chevron></Button
+					class="w-44 whitespace-nowrap justify-between focus:border-0 focus:ring-0 text-gray-900 font-semibold text-md px-2 py-2 "
+					><Chevron>Order by Number</Chevron></Button
 				>
 				<Dropdown>
-					<DropdownItem>Descending</DropdownItem>
+					<DropdownItem>
+						<button on:click={() => (order = true)} type="button"> Default </button>
+					</DropdownItem>
 					<DropdownDivider />
-					<DropdownItem>Default</DropdownItem>
+					<DropdownItem>
+						<button on:click={() => (order = false)} type="button">Descending</button>
+					</DropdownItem>
 				</Dropdown>
 			</div>
 			<div class="flex flex-row gap-2 items-center">
