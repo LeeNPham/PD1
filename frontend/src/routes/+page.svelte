@@ -22,6 +22,7 @@
 	let pokemanGenus;
 	let pokeman;
 	let order = true;
+	let selectedRegion = [];
 
 	$: {
 		if (pokeId != 1 || startFlag == true) {
@@ -56,6 +57,23 @@
 		const genusUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokeId}`;
 		const gRes = await fetch(genusUrl);
 		pokemanGenus = await gRes.json();
+	}
+
+	function toggleRegion(region) {
+		if (selectedRegion.includes(region)) {
+			selectedRegion = selectedRegion.filter((item) => item !== region);
+		} else {
+			selectedRegion.push(region);
+		}
+		selectedRegion = selectedRegion;
+	}
+
+	$: {
+		if (selectedRegion.length != 0) {
+			filteredPokemon = $pokemon.filter((pokeman) => selectedRegion.includes(pokeman.region));
+		} else {
+			filteredPokemon = [...$pokemon];
+		}
 	}
 
 	onMount(() => {
@@ -117,34 +135,34 @@
 				>
 				<Dropdown class="w-auto p-2 space-y-2 text-sm z-10">
 					<li>
-						<Checkbox>All</Checkbox>
+						<Checkbox on:click={() => toggleRegion('all')}>All</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Kanto</Checkbox>
+						<Checkbox on:click={() => toggleRegion('kanto')}>Kanto</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Jhoto</Checkbox>
+						<Checkbox on:click={() => toggleRegion('jhoto')}>Jhoto</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Hoenn</Checkbox>
+						<Checkbox on:click={() => toggleRegion('hoenn')}>Hoenn</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Sinnoh</Checkbox>
+						<Checkbox on:click={() => toggleRegion('sinnoh')}>Sinnoh</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Unova</Checkbox>
+						<Checkbox on:click={() => toggleRegion('unova')}>Unova</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Kalos</Checkbox>
+						<Checkbox on:click={() => toggleRegion('kalos')}>Kalos</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Alola</Checkbox>
+						<Checkbox on:click={() => toggleRegion('alola')}>Alola</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Galar</Checkbox>
+						<Checkbox on:click={() => toggleRegion('galar')}>Galar</Checkbox>
 					</li>
 					<li>
-						<Checkbox>Paldea</Checkbox>
+						<Checkbox on:click={() => toggleRegion('paldea')}>Paldea</Checkbox>
 					</li>
 				</Dropdown>
 			</div>

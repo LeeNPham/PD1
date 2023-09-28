@@ -1,4 +1,5 @@
 <script>
+	//@ts-nocheck
 	import EyeCloseIcon from '$lib/icons/EyeCloseIcon.svelte';
 	import EyeIcon from '$lib/icons/EyeIcon.svelte';
 	import { onMount } from 'svelte';
@@ -83,7 +84,7 @@
 
 	onMount(() => {
 		// console.log(pokeman);
-		console.log(pokemanGenus);
+		// console.log(pokemanGenus);
 	});
 </script>
 
