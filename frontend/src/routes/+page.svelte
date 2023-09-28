@@ -32,16 +32,6 @@
 	}
 
 	$: {
-		if (searchTerm) {
-			filteredPokemon = $pokemon.filter((pokeman) =>
-				pokeman.name.toLowerCase().includes(searchTerm.toLowerCase())
-			);
-		} else {
-			filteredPokemon = [...$pokemon];
-		}
-	}
-
-	$: {
 		if (order == true) {
 			filteredPokemon = [...$pokemon];
 		} else {
@@ -69,8 +59,18 @@
 	}
 
 	$: {
-		if (selectedRegion.length != 0) {
+		if (selectedRegion.length !== 0 && searchTerm !== '') {
+			filteredPokemon = $pokemon.filter(
+				(pokeman) =>
+					selectedRegion.includes(pokeman.region) &&
+					pokeman.name.toLowerCase().includes(searchTerm.toLowerCase())
+			);
+		} else if (selectedRegion.length !== 0) {
 			filteredPokemon = $pokemon.filter((pokeman) => selectedRegion.includes(pokeman.region));
+		} else if (searchTerm !== '') {
+			filteredPokemon = $pokemon.filter((pokeman) =>
+				pokeman.name.toLowerCase().includes(searchTerm.toLowerCase())
+			);
 		} else {
 			filteredPokemon = [...$pokemon];
 		}
