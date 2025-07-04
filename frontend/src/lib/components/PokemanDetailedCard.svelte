@@ -136,7 +136,7 @@
 		</div>
 		<div id="placeholderSpace" class="h-[115px]" />
 		<div
-			class="pt-[125px] p-8 w-full h-[800px] rounded-xl bg-white flex flex-col items-start gap-1"
+			class="pt-[125px] p-8 w-full min-h-[600px] rounded-xl bg-white flex flex-col items-start gap-1"
 		>
 			<div class="text-md w-full text-center font-extrabold text-gray-500">#{pokeman.id}</div>
 			<div class="text-3xl w-full text-center font-bold text-gray-900 capitalize">

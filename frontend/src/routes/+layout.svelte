@@ -27,7 +27,7 @@
 </div>
 <div class="w-full min-h-screen bg-primary-background">
 	<Nav />
-	<div class="max-w-6xl mx-auto flex flex-row items-start gap-5">
+	<div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-5">
 		<slot />
 	</div>
 </div>

@@ -144,8 +144,8 @@
 	<title>Svelte Kit Pokédex</title>
 </svelte:head>
 
-<div class="w-2/3">
-	<div class="relative flex flex-col gap-8 pb-5">
+<div class="w-full lg:w-2/3">
+	<div class="relative flex flex-col gap-8 pb-5 px-4 lg:px-0">
 		<!-- Search component -->
 		<input
 			class="w-full rounded-xl text-lg p-5 border-0 focus:ring-0 focus:border-0 shadow-lg shadow-black/5"
@@ -403,6 +403,14 @@
 	</div>
 </div>
 
-<div class="sticky top-0 right-0 w-1/3 min-w-[384px]">
+<!-- Mobile detailed card -->
+<div class="lg:hidden w-full mt-8 px-4">
+	<PokemanDetailedCard {pokeman} {pokemanGenus} bind:pokeId />
+</div>
+
+<!-- Desktop sticky detailed card -->
+<div
+	class="hidden lg:block sticky top-4 right-0 w-1/3 min-w-[384px] max-h-[calc(100vh-4rem)] overflow-hidden pb-4"
+>
 	<PokemanDetailedCard {pokeman} {pokemanGenus} bind:pokeId />
 </div>
