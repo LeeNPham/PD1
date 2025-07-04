@@ -136,20 +136,14 @@
 		</div>
 		<div id="placeholderSpace" class="h-[115px]" />
 		<div
-			class="pt-[125px] p-8 w-full h-[875px] rounded-xl bg-white flex flex-col items-start gap-1"
+			class="pt-[125px] p-8 w-full h-[800px] rounded-xl bg-white flex flex-col items-start gap-1"
 		>
 			<div class="text-md w-full text-center font-extrabold text-gray-500">#{pokeman.id}</div>
 			<div class="text-3xl w-full text-center font-bold text-gray-900 capitalize">
 				{pokeman.name}
 			</div>
 			<div class="text-primary-gray text-center w-full text-md">
-				{#if pokeId < 899}
-					{pokemanGenus.genera[7].genus}
-				{:else if pokeId >= 899}
-					{pokemanGenus.genera[3].genus}
-				{:else}
-					{pokemanGenus.genera[0].genus}
-				{/if}
+				{pokemanGenus.genera?.[0]?.genus ?? 'Unknown'}
 			</div>
 			<div class="flex w-full justify-center gap-2">
 				{#each pokeman.types as types}
@@ -163,26 +157,7 @@
 				pokédex entry
 			</div>
 			<div class="w-full min-h-[55px] text-sm text-black font-medium">
-				<!-- {pokemanGenus.flavor_text_entries[14].flavor_text} -->
-				{#if pokeId < 387}
-					{pokemanGenus.flavor_text_entries[14].flavor_text}
-				{:else if pokeId < 494}
-					{pokemanGenus.flavor_text_entries[2].flavor_text}
-				{:else if pokeId < 646}
-					{pokemanGenus.flavor_text_entries[1].flavor_text}
-				{:else if pokeId < 647}
-					{pokemanGenus.flavor_text_entries[2].flavor_text}
-				{:else if pokeId < 649}
-					{pokemanGenus.flavor_text_entries[0].flavor_text}
-				{:else if pokeId < 650}
-					{pokemanGenus.flavor_text_entries[1].flavor_text}
-				{:else if pokeId < 721}
-					{pokemanGenus.flavor_text_entries[6].flavor_text}
-				{:else if pokeId < 899}
-					{pokemanGenus.flavor_text_entries[7].flavor_text}
-				{:else}
-					{pokemanGenus.flavor_text_entries[0].flavor_text}
-				{/if}
+				{pokemanGenus.flavor_text_entries?.[0]?.flavor_text ?? 'No Pokédex entry available.'}
 			</div>
 			<div class="text-center py-2 text-sm w-full uppercase font-bold text-gray-800">abilities</div>
 			<div class="flex w-full justify-evenly gap-3">
@@ -323,6 +298,29 @@
 					{/if}
 					<div class="text-gray-500 font-extrabold">>></div>
 				</button>
+			</div>
+		</div>
+	</div>
+{:else if pokeman}
+	<div class="relative scale-[85%]">
+		<div class="absolute h-[250px] w-full flex items-center justify-center">
+			<img class="h-full w-auto object-cover" src={pokeman.image} alt={pokeman.name} />
+		</div>
+		<div id="placeholderSpace" class="h-[115px]" />
+		<div class="pt-[125px] p-8 w-full rounded-xl bg-white flex flex-col items-center gap-3">
+			<div class="text-md w-full text-center font-extrabold text-gray-500">#{pokeman.id}</div>
+			<div class="text-3xl w-full text-center font-bold text-gray-900 capitalize">
+				{pokeman.name}
+			</div>
+			<div class="flex w-full justify-center gap-2">
+				{#each pokeman.types as type}
+					{@const buttonColor = `bg-type-${type}`}
+					<div class="font-bold rounded-md text-black/70 px-3 py-1 {buttonColor}">{type}</div>
+				{/each}
+			</div>
+			<div class="text-center text-base py-4 w-full font-semibold text-yellow-700">
+				Special form: Mega, Gmax, or other variant.<br />Detailed data not available from PokeAPI
+				GraphQL.
 			</div>
 		</div>
 	</div>

@@ -44,7 +44,7 @@
 			}
 			evolutionList = evolutionList;
 		} catch (error) {
-			console.log('No evolution chain');
+			// console.log('No evolution chain');
 		}
 	}
 
@@ -89,7 +89,5 @@
 		{/each}
 	</div>
 {:else}
-	<div class="flex flex-row justify-center text-center font-bold w-full items-center min-h-[70px]">
-		No Evolution Info
-	</div>
+	<!-- No evolution info, render nothing -->
 {/if}
