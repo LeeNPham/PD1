@@ -10,7 +10,7 @@
 	on:click={() => !disabled && selectPokemon(pokeman.id)}
 	class="relative pt-10 p-6 w-[225px] bg-white text-gray-800 text-center rounded-2xl shadow-md hover:shadow-lg shadow-primary-gray/20 flex flex-col items-center {disabled
 		? 'opacity-50 cursor-not-allowed'
-		: ''}"
+		: ''} {pokeId === pokeman.id ? 'ring-2 ring-blue-500 bg-blue-50' : ''}"
 	{disabled}
 	title={disabled ? 'Special forms (Mega, Gmax, etc.) are not supported' : ''}
 >
